@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>码麦皮</title>
+  
+  <subtitle>可能就是这样一条咸鱼吧。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yllwz.co/"/>
+  <updated>2018-12-14T10:05:17.027Z</updated>
+  <id>http://yllwz.co/</id>
+  
+  <author>
+    <name>Yang Long</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>又开始了</title>
+    <link href="http://yllwz.co/2018/12/11/%E5%8F%88%E5%BC%80%E5%A7%8B%E4%BA%86/"/>
+    <id>http://yllwz.co/2018/12/11/又开始了/</id>
+    <published>2018-12-11T03:47:09.965Z</published>
+    <updated>2018-12-14T10:05:17.027Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>oooooooooooooooooooooooooooooooooooooo~</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;oooooooooooooooooooooooooooooooooooooo~&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      
+    
+    </summary>
+    
+      <category term="心情" scheme="http://yllwz.co/categories/%E5%BF%83%E6%83%85/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO安装教程</title>
+    <link href="http://yllwz.co/2018/12/11/hello-world/"/>
+    <id>http://yllwz.co/2018/12/11/hello-world/</id>
+    <published>2018-12-11T03:24:40.130Z</published>
+    <updated>2018-12-14T09:55:50.081Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">HEXO安装教程</a><br><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NEXT配置教程</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/fengxiongZz/p/7707219.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;HEXO安装教程&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://theme-next.ii
+      
+    
+    </summary>
+    
+      <category term="教程" scheme="http://yllwz.co/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="HEXO" scheme="http://yllwz.co/tags/HEXO/"/>
+    
+  </entry>
+  
+</feed>
