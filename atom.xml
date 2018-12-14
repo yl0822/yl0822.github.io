@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yllwz.co/"/>
-  <updated>2018-12-14T10:05:17.027Z</updated>
+  <updated>2018-12-14T12:01:20.458Z</updated>
   <id>http://yllwz.co/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Netty学习笔记（一）</title>
+    <link href="http://yllwz.co/2018/12/14/Netty%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yllwz.co/2018/12/14/Netty学习笔记/</id>
+    <published>2018-12-14T11:45:33.269Z</published>
+    <updated>2018-12-14T12:01:20.458Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>netty具备一个成熟的框架应该有的所有特性：高性能、可扩展、易用性。</p></blockquote><h1 id="高性能"><a href="#高性能" class="headerlink" title="高性能"></a>高性能</h1><h2 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h2><h3 id="非阻塞"><a href="#非阻塞" class="headerlink" title="非阻塞"></a>非阻塞</h3><blockquote><p>好处：利用NIO的非阻塞，规避IO的就绪等待时间。</p></blockquote><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><blockquote><p>所有IO方法封装为~非强迫~阻塞，<br>不管是通过callback还是future（netty在future的基础上还扩展了FuturePromis，扩展了对异步结果的操作能力）<br>好处：减少NIO线程内存拷贝消耗</p></blockquote><h2 id="少量线程管理大量连接"><a href="#少量线程管理大量连接" class="headerlink" title="少量线程管理大量连接"></a>少量线程管理大量连接</h2><blockquote><p>减少线程上下文切换</p></blockquote><h2 id="序列化方式"><a href="#序列化方式" class="headerlink" title="序列化方式"></a>序列化方式</h2><blockquote><p>默认支持protobuf在二进制的基础上提供了比Hessian2更好的序列化性能。</p></blockquote><h2 id="零拷贝"><a href="#零拷贝" class="headerlink" title="零拷贝"></a>零拷贝</h2><blockquote><p>通过ByteBuf封装了directBuffer，直接从堆外内存进行操作，减少一次内存拷贝。<br>在需要进行数据包组合（如header和body）的场景下通过CompositeBuffer持有两个缓冲区的指针，变相减少内存拷贝。<br>在文件传输过程中，利用FileChannel的tranferTo方法直接从内核拷出，减少到用户空间的拷贝。</p></blockquote><h2 id="串行化"><a href="#串行化" class="headerlink" title="串行化"></a>串行化</h2><blockquote><p>数据在ChannelPipeline中通过单线程进行处理，减少相应的同步操作提高效率。</p></blockquote><h2 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h2><blockquote><p>通过合理利用volatile、cas和线程安全类，减少锁的使用提高效率。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;netty具备一个成熟的框架应该有的所有特性：高性能、可扩展、易用性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;高性能&quot;&gt;&lt;a href=&quot;#高性能&quot; class=&quot;headerlink&quot; title=&quot;高性能&quot;&gt;&lt;/a&gt;高性能&lt;/h1
+      
+    
+    </summary>
+    
+      <category term="NETTY" scheme="http://yllwz.co/categories/NETTY/"/>
+    
+    
+      <category term="网络" scheme="http://yllwz.co/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="异步" scheme="http://yllwz.co/tags/%E5%BC%82%E6%AD%A5/"/>
+    
+      <category term="高性能" scheme="http://yllwz.co/tags/%E9%AB%98%E6%80%A7%E8%83%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>又开始了</title>

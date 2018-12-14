@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Netty学习笔记（一）]]></title>
+    <url>%2F2018%2F12%2F14%2FNetty%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[netty具备一个成熟的框架应该有的所有特性：高性能、可扩展、易用性。 高性能异步非阻塞非阻塞 好处：利用NIO的非阻塞，规避IO的就绪等待时间。 异步 所有IO方法封装为~非强迫~阻塞，不管是通过callback还是future（netty在future的基础上还扩展了FuturePromis，扩展了对异步结果的操作能力）好处：减少NIO线程内存拷贝消耗 少量线程管理大量连接 减少线程上下文切换 序列化方式 默认支持protobuf在二进制的基础上提供了比Hessian2更好的序列化性能。 零拷贝 通过ByteBuf封装了directBuffer，直接从堆外内存进行操作，减少一次内存拷贝。在需要进行数据包组合（如header和body）的场景下通过CompositeBuffer持有两个缓冲区的指针，变相减少内存拷贝。在文件传输过程中，利用FileChannel的tranferTo方法直接从内核拷出，减少到用户空间的拷贝。 串行化 数据在ChannelPipeline中通过单线程进行处理，减少相应的同步操作提高效率。 锁优化 通过合理利用volatile、cas和线程安全类，减少锁的使用提高效率。]]></content>
+      <categories>
+        <category>NETTY</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>异步</tag>
+        <tag>高性能</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[又开始了]]></title>
     <url>%2F2018%2F12%2F11%2F%E5%8F%88%E5%BC%80%E5%A7%8B%E4%BA%86%2F</url>
     <content type="text"><![CDATA[oooooooooooooooooooooooooooooooooooooo~]]></content>
