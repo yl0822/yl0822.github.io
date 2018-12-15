@@ -104,17 +104,20 @@
 
 
 
-  <meta name="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
-<meta name="keywords" content="技术、扯皮">
-<meta property="og:type" content="website">
-<meta property="og:title" content="码麦皮">
-<meta property="og:url" content="http://yllwz.co/index.html">
+  <meta name="description" content="结构 连接池组件 管理服务和工具组件 SQL接口组件 查询优化器组件 优化器组件 缓存组件 插件式存储引擎（是mysql区别于其他db的重要特性，不同引擎有不同特点，开发者可以根据引擎接口编写主键的存储引擎或者修改已有引擎的源码来实现自己的需求） 物理文件  InnoDB基础 划重点：很多人用  基本介绍 支持事务（OLTP（联机事务处理过程）应用常见需求） 支持行锁（提高单表并发能力） 支持MV">
+<meta name="keywords" content="InnoDB,中间件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql学习笔记">
+<meta property="og:url" content="http://yllwz.co/2018/12/15/Mysql学习笔记/index.html">
 <meta property="og:site_name" content="码麦皮">
-<meta property="og:description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+<meta property="og:description" content="结构 连接池组件 管理服务和工具组件 SQL接口组件 查询优化器组件 优化器组件 缓存组件 插件式存储引擎（是mysql区别于其他db的重要特性，不同引擎有不同特点，开发者可以根据引擎接口编写主键的存储引擎或者修改已有引擎的源码来实现自己的需求） 物理文件  InnoDB基础 划重点：很多人用  基本介绍 支持事务（OLTP（联机事务处理过程）应用常见需求） 支持行锁（提高单表并发能力） 支持MV">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544887338721&di=45e626ff949dbbab5c210b9269a631d8&imgtype=0&src=http%3A%2F%2Fimg11.360buyimg.com%2FpopWaterMark%2Fg12%2FM00%2F0D%2F11%2FrBEQYFGsbu8IAAAAAAXacET4JwkAACpJgP5a54ABdqI349.jpg">
+<meta property="og:updated_time" content="2018-12-15T12:35:27.459Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="码麦皮">
-<meta name="twitter:description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+<meta name="twitter:title" content="Mysql学习笔记">
+<meta name="twitter:description" content="结构 连接池组件 管理服务和工具组件 SQL接口组件 查询优化器组件 优化器组件 缓存组件 插件式存储引擎（是mysql区别于其他db的重要特性，不同引擎有不同特点，开发者可以根据引擎接口编写主键的存储引擎或者修改已有引擎的源码来实现自己的需求） 物理文件  InnoDB基础 划重点：很多人用  基本介绍 支持事务（OLTP（联机事务处理过程）应用常见需求） 支持行锁（提高单表并发能力） 支持MV">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544887338721&di=45e626ff949dbbab5c210b9269a631d8&imgtype=0&src=http%3A%2F%2Fimg11.360buyimg.com%2FpopWaterMark%2Fg12%2FM00%2F0D%2F11%2FrBEQYFGsbu8IAAAAAAXacET4JwkAACpJgP5a54ABdqI349.jpg">
 
 
 
@@ -123,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yllwz.co/">
+  <link rel="canonical" href="http://yllwz.co/2018/12/15/Mysql学习笔记/">
 
 
 
@@ -133,7 +136,7 @@
   };
 </script>
 
-  <title>码麦皮</title>
+  <title>Mysql学习笔记 | 码麦皮</title>
   
 
 
@@ -181,8 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -223,7 +225,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -365,9 +367,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -399,10 +401,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/15/Mysql学习笔记/" class="post-title-link" itemprop="http://yllwz.co/index.html">Mysql学习笔记</a>
+          <h1 class="post-title" itemprop="name headline">Mysql学习笔记
+
               
             
           </h1>
@@ -476,6 +476,13 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -494,9 +501,7 @@
       
 
       
-        
-          
-            <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><ol>
+        <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><ol>
 <li>连接池组件</li>
 <li>管理服务和工具组件</li>
 <li>SQL接口组件</li>
@@ -898,8 +903,6 @@
 <p>整片下来花了五个小时，基本是对之前innodb相关知识的回顾和串联，当然也理清了一些思路，收货很大，书如下：<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1544887338721&amp;di=45e626ff949dbbab5c210b9269a631d8&amp;imgtype=0&amp;src=http%3A%2F%2Fimg11.360buyimg.com%2FpopWaterMark%2Fg12%2FM00%2F0D%2F11%2FrBEQYFGsbu8IAAAAAAXacET4JwkAACpJgP5a54ABdqI349.jpg" alt="MySQL技术内幕"></p>
 </blockquote>
 
-          
-        
       
     </div>
 
@@ -920,393 +923,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/14/Netty学习笔记（二）/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yang Long">
-      <meta itemprop="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="码麦皮">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/14/Netty学习笔记（二）/" class="post-title-link" itemprop="http://yllwz.co/index.html">Netty学习笔记（二）</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-14 20:15:38" itemprop="dateCreated datePublished" datetime="2018-12-14T20:15:38+08:00">2018-12-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-15 20:33:25" itemprop="dateModified" datetime="2018-12-15T20:33:25+08:00">2018-12-15</time>
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/NETTY/" itemprop="url" rel="index"><span itemprop="name">NETTY</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/InnoDB/" rel="tag"># InnoDB</a>
           
-
+            <a href="/tags/中间件/" rel="tag"># 中间件</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/14/Netty学习笔记（二）/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/14/Netty学习笔记（二）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>netty具备一个成熟的框架应该有的所有特性：高性能、可扩展、易用性。</p>
-</blockquote>
-<h1 id="基础设计"><a href="#基础设计" class="headerlink" title="基础设计"></a>基础设计</h1>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/14/Netty学习笔记（一）/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yang Long">
-      <meta itemprop="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="码麦皮">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/14/Netty学习笔记（一）/" class="post-title-link" itemprop="http://yllwz.co/index.html">Netty学习笔记（一）</a>
-              
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2018/12/14/Netty学习笔记（二）/" rel="next" title="Netty学习笔记（二）">
+                <i class="fa fa-chevron-left"></i> Netty学习笔记（二）
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-14 19:45:33 / 修改时间：20:01:20" itemprop="dateCreated datePublished" datetime="2018-12-14T19:45:33+08:00">2018-12-14</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/NETTY/" itemprop="url" rel="index"><span itemprop="name">NETTY</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/14/Netty学习笔记（一）/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/14/Netty学习笔记（一）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <blockquote>
-<p>netty具备一个成熟的框架应该有的所有特性：高性能、可扩展、易用性。</p>
-</blockquote>
-<h1 id="高性能"><a href="#高性能" class="headerlink" title="高性能"></a>高性能</h1><h2 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h2><h3 id="非阻塞"><a href="#非阻塞" class="headerlink" title="非阻塞"></a>非阻塞</h3><blockquote>
-<p>好处：利用NIO的非阻塞，规避IO的就绪等待时间。</p>
-</blockquote>
-<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><blockquote>
-<p>所有IO方法封装为~非强迫~阻塞，<br>不管是通过callback还是future（netty在future的基础上还扩展了FuturePromis，扩展了对异步结果的操作能力）<br>好处：减少NIO线程内存拷贝消耗</p>
-</blockquote>
-<h2 id="少量线程管理大量连接"><a href="#少量线程管理大量连接" class="headerlink" title="少量线程管理大量连接"></a>少量线程管理大量连接</h2><blockquote>
-<p>减少线程上下文切换</p>
-</blockquote>
-<h2 id="序列化方式"><a href="#序列化方式" class="headerlink" title="序列化方式"></a>序列化方式</h2><blockquote>
-<p>默认支持protobuf在二进制的基础上提供了比Hessian2更好的序列化性能。</p>
-</blockquote>
-<h2 id="零拷贝"><a href="#零拷贝" class="headerlink" title="零拷贝"></a>零拷贝</h2><blockquote>
-<p>通过ByteBuf封装了directBuffer，直接从堆外内存进行操作，减少一次内存拷贝。<br>在需要进行数据包组合（如header和body）的场景下通过CompositeBuffer持有两个缓冲区的指针，变相减少内存拷贝。<br>在文件传输过程中，利用FileChannel的tranferTo方法直接从内核拷出，减少到用户空间的拷贝。</p>
-</blockquote>
-<h2 id="串行化"><a href="#串行化" class="headerlink" title="串行化"></a>串行化</h2><blockquote>
-<p>数据在ChannelPipeline中通过单线程进行处理，减少相应的同步操作提高效率。</p>
-</blockquote>
-<h2 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h2><blockquote>
-<p>通过合理利用volatile、cas和线程安全类，减少锁的使用提高效率。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1316,382 +964,22 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/11/又开始了/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yang Long">
-      <meta itemprop="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="码麦皮">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/11/又开始了/" class="post-title-link" itemprop="http://yllwz.co/index.html">又开始了</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-11 11:47:09" itemprop="dateCreated datePublished" datetime="2018-12-11T11:47:09+08:00">2018-12-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-14 18:05:17" itemprop="dateModified" datetime="2018-12-14T18:05:17+08:00">2018-12-14</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/心情/" itemprop="url" rel="index"><span itemprop="name">心情</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/11/又开始了/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/11/又开始了/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>oooooooooooooooooooooooooooooooooooooo~</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/11/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yang Long">
-      <meta itemprop="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="码麦皮">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/11/hello-world/" class="post-title-link" itemprop="http://yllwz.co/index.html">HEXO安装教程</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-11 11:24:40" itemprop="dateCreated datePublished" datetime="2018-12-11T11:24:40+08:00">2018-12-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-14 17:55:50" itemprop="dateModified" datetime="2018-12-14T17:55:50+08:00">2018-12-14</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/11/hello-world/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/11/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">HEXO安装教程</a><br><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NEXT配置教程</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -1712,8 +1000,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -1845,6 +1142,22 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#结构"><span class="nav-number">1.</span> <span class="nav-text">结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#InnoDB基础"><span class="nav-number">1.1.</span> <span class="nav-text">InnoDB基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本介绍"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#高级功能"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">高级功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他描述"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">其他描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InnoDB体系"><span class="nav-number">1.2.</span> <span class="nav-text">InnoDB体系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#架构模型"><span class="nav-number">1.2.1.</span> <span class="nav-text">架构模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程详解"><span class="nav-number">1.2.2.</span> <span class="nav-text">线程详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件"><span class="nav-number">1.2.3.</span> <span class="nav-text">文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表"><span class="nav-number">1.2.4.</span> <span class="nav-text">表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">1.3.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.3.1.</span> <span class="nav-text">概述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁"><span class="nav-number">1.4.</span> <span class="nav-text">锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DB区分于文件系统的特性"><span class="nav-number">1.4.1.</span> <span class="nav-text">DB区分于文件系统的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#innodb的锁"><span class="nav-number">1.4.2.</span> <span class="nav-text">innodb的锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三张表"><span class="nav-number">1.4.3.</span> <span class="nav-text">三张表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快照读"><span class="nav-number">1.4.4.</span> <span class="nav-text">快照读</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#其他锁"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">其他锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#锁算法"><span class="nav-number">1.4.4.2.</span> <span class="nav-text">锁算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#锁解决事务带来的问题"><span class="nav-number">1.4.4.3.</span> <span class="nav-text">锁解决事务带来的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻塞"><span class="nav-number">1.4.4.4.</span> <span class="nav-text">阻塞</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">1.5.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何保证已提交事务的ACID"><span class="nav-number">1.5.1.</span> <span class="nav-text">如何保证已提交事务的ACID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何保证未提交事务的ACID"><span class="nav-number">1.5.2.</span> <span class="nav-text">如何保证未提交事务的ACID</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.6.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -2028,6 +1341,10 @@
   
 
   
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
 
   
 
@@ -2042,6 +1359,23 @@
     <script id="dsq-count-scr" src="https://disqus_B5BXyv8p8b.disqus.com/count.js" async></script>
   
 
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://yllwz.co/2018/12/15/Mysql学习笔记/';
+        this.page.identifier = '2018/12/15/Mysql学习笔记/';
+        this.page.title = 'Mysql学习笔记';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://disqus_B5BXyv8p8b.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 
