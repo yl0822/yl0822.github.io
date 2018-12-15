@@ -1015,7 +1015,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-15 22:17:32" itemprop="dateModified" datetime="2018-12-15T22:17:32+08:00">2018-12-15</time>
+                <time title="修改时间：2018-12-15 22:26:38" itemprop="dateModified" datetime="2018-12-15T22:26:38+08:00">2018-12-15</time>
               
             
           </span>
@@ -1104,10 +1104,10 @@
 </ul>
 </li>
 <li>DirectByteBuffer为什么能提高效率?<ul>
-<li>DirectByteBuffer能减少一次拷贝,也就是说即使不用HeapByteBuffer进行IO的时候也会默认创建一个DirectByteBuffer进行中转</li>
+<li>DirectByteBuffer能减少一次拷贝,也就是说即使直接用HeapByteBuffer进行IO的时候也会默认创建一个DirectByteBuffer进行中转</li>
 </ul>
 </li>
-<li>为HeapByteBuffer不能直接写到内核空间而需要先拷贝到DirectByteBuffer再到内核空间?<ul>
+<li>为什么HeapByteBuffer不能直接写到内核空间而需要先拷贝到DirectByteBuffer再到内核空间?<ul>
 <li>因为内核空间的ReadFile（<a href="https://blog.csdn.net/infant09/article/details/80044868" target="_blank" rel="noopener">FileInputStream与FileChannel对比</a>    ）方法要求必须连续的内存，且使用期间该内存不得被操作。<ul>
 <li>而在jvm-heap上这两点都不能满足<ul>
 <li>HeapByteBuffer分配出来的内存块处于jvm-heap上，在GC后（带有整理过程的算法如CMS），内存地址会改变</li>
@@ -1115,8 +1115,8 @@
 </ul>
 </li>
 <li>而c-heap都能满足<ul>
-<li>GC管不着的地方</li>
-<li>glibc.ptmalloc分配的内存连续</li>
+<li>GC管不着，由操作系统进行内存空间管理</li>
+<li>glibc.ptmalloc分配的内存保证连续</li>
 </ul>
 </li>
 </ul>
