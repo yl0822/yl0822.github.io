@@ -49,54 +49,19 @@
   </entry>
   
   <entry>
-    <title>Netty学习笔记（二）</title>
-    <link href="http://yllwz.co/2018/12/14/Netty%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yllwz.co/2018/12/14/Netty学习笔记（二）/</id>
-    <published>2018-12-14T12:15:38.990Z</published>
-    <updated>2018-12-15T12:33:25.668Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>netty具备一个成熟的框架应该有的所有特性：高性能、可扩展、易用性。</p></blockquote><h1 id="基础设计"><a href="#基础设计" class="headerlink" title="基础设计"></a>基础设计</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;netty具备一个成熟的框架应该有的所有特性：高性能、可扩展、易用性。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;基础设计&quot;&gt;&lt;a href=&quot;#基础设计&quot; class=&quot;headerlink&quot; title=&quot;基础设计&quot;&gt;&lt;/a&gt;基础设计
-      
-    
-    </summary>
-    
-      <category term="NETTY" scheme="http://yllwz.co/categories/NETTY/"/>
-    
-    
-      <category term="网络" scheme="http://yllwz.co/tags/%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="异步" scheme="http://yllwz.co/tags/%E5%BC%82%E6%AD%A5/"/>
-    
-      <category term="高性能" scheme="http://yllwz.co/tags/%E9%AB%98%E6%80%A7%E8%83%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Netty学习笔记（一）</title>
-    <link href="http://yllwz.co/2018/12/14/Netty%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yllwz.co/2018/12/14/Netty学习笔记（一）/</id>
+    <title>Netty学习笔记</title>
+    <link href="http://yllwz.co/2018/12/14/Netty%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yllwz.co/2018/12/14/Netty学习笔记/</id>
     <published>2018-12-14T11:45:33.269Z</published>
-    <updated>2018-12-14T12:01:20.458Z</updated>
+    <updated>2018-12-15T14:17:32.101Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>netty具备一个成熟的框架应该有的所有特性：高性能、可扩展、易用性。</p></blockquote><h1 id="高性能"><a href="#高性能" class="headerlink" title="高性能"></a>高性能</h1><h2 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h2><h3 id="非阻塞"><a href="#非阻塞" class="headerlink" title="非阻塞"></a>非阻塞</h3><blockquote><p>好处：利用NIO的非阻塞，规避IO的就绪等待时间。</p></blockquote><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><blockquote><p>所有IO方法封装为~非强迫~阻塞，<br>不管是通过callback还是future（netty在future的基础上还扩展了FuturePromis，扩展了对异步结果的操作能力）<br>好处：减少NIO线程内存拷贝消耗</p></blockquote><h2 id="少量线程管理大量连接"><a href="#少量线程管理大量连接" class="headerlink" title="少量线程管理大量连接"></a>少量线程管理大量连接</h2><blockquote><p>减少线程上下文切换</p></blockquote><h2 id="序列化方式"><a href="#序列化方式" class="headerlink" title="序列化方式"></a>序列化方式</h2><blockquote><p>默认支持protobuf在二进制的基础上提供了比Hessian2更好的序列化性能。</p></blockquote><h2 id="零拷贝"><a href="#零拷贝" class="headerlink" title="零拷贝"></a>零拷贝</h2><blockquote><p>通过ByteBuf封装了directBuffer，直接从堆外内存进行操作，减少一次内存拷贝。<br>在需要进行数据包组合（如header和body）的场景下通过CompositeBuffer持有两个缓冲区的指针，变相减少内存拷贝。<br>在文件传输过程中，利用FileChannel的tranferTo方法直接从内核拷出，减少到用户空间的拷贝。</p></blockquote><h2 id="串行化"><a href="#串行化" class="headerlink" title="串行化"></a>串行化</h2><blockquote><p>数据在ChannelPipeline中通过单线程进行处理，减少相应的同步操作提高效率。</p></blockquote><h2 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h2><blockquote><p>通过合理利用volatile、cas和线程安全类，减少锁的使用提高效率。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h1 id="IO基础"><a href="#IO基础" class="headerlink" title="IO基础"></a>IO基础</h1><h3 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h3><ul><li>没有缓冲区，通过InputStream/OutputStream直接从用户空间到内核空间（<em>为什么这样效率很低?</em>）</li><li>同步阻塞IO，导致线程也被阻塞</li></ul><h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><ul><li><p>Buffer</p><ul><li>是一块可写入和读取的内存块，包装后提供了一组方法进行内存块的操作和访问</li><li><p>基本用法</p><ul><li>capacity：缓冲区总容量</li><li>position：游标位置（写操作下，游标和limit一样一直增加，rewind时，游标复位，limit不变，flip时，游标复位并将limit设置成之前position的值）</li><li>limit：缓冲区已用大小</li><li>flip()：- 当向buffer写入数据时，buffer会记录下写了多少数据。一旦要读取数据需要通过flip()方法将Buffer从写模式切换到读模式。在读模式下，可以读取之前写入到buffer的所有数据。</li><li>clear()：一旦读完了所有的数据，就需要清空缓冲区，让它可以再次被写入。有两种方式能清空缓冲区：调用clear()或compact()方法。clear()方法会清空整个缓冲区。compact()方法只会清除已经读过的数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">RandomAccessFile aFile = new RandomAccessFile(&quot;nio-data.txt&quot;, &quot;rw&quot;);</span><br><span class="line">FileChannel inChannel = aFile.getChannel();</span><br><span class="line">ByteBuffer buf = ByteBuffer.allocate(48); // 生成48字节大小的缓冲区</span><br><span class="line">int bytesRead = inChannel.read(buf); // 读取数据到缓冲区</span><br><span class="line">while (bytesRead != -1) &#123;</span><br><span class="line">  buf.flip();  // 准备从缓冲区读取数据</span><br><span class="line">  while(buf.hasRemaining())&#123;</span><br><span class="line">      System.out.print((char) buf.get()); // 每次读取1个字节</span><br><span class="line">  &#125;</span><br><span class="line">  buf.clear(); // 清空用于再次读取</span><br><span class="line">  bytesRead = inChannel.read(buf);</span><br><span class="line">&#125;</span><br><span class="line">aFile.close();</span><br></pre></td></tr></table></figure></li></ul></li><li><p>关于HeapByteBuffer和DirectByteBuffer的几个疑问释疑</p><ul><li>DirectByteBuffer是否是内核空间?<ul><li>DirectByteBuffer毫无疑问属于堆外内存，但是依然属于操作系统体系中的用户空间，它通过glibc的ptmalloc函数分配的内存。</li></ul></li><li>DirectByteBuffer为什么能提高效率?<ul><li>DirectByteBuffer能减少一次拷贝,也就是说即使不用HeapByteBuffer进行IO的时候也会默认创建一个DirectByteBuffer进行中转</li></ul></li><li>为HeapByteBuffer不能直接写到内核空间而需要先拷贝到DirectByteBuffer再到内核空间?<ul><li>因为内核空间的ReadFile（<a href="https://blog.csdn.net/infant09/article/details/80044868" target="_blank" rel="noopener">FileInputStream与FileChannel对比</a>    ）方法要求必须连续的内存，且使用期间该内存不得被操作。<ul><li>而在jvm-heap上这两点都不能满足<ul><li>HeapByteBuffer分配出来的内存块处于jvm-heap上，在GC后（带有整理过程的算法如CMS），内存地址会改变</li><li>HeapByteBuffer持有的byte[]数组在jvm规范下并不要求内存连续</li></ul></li><li>而c-heap都能满足<ul><li>GC管不着的地方</li><li>glibc.ptmalloc分配的内存连续</li></ul></li></ul></li></ul></li><li>能直接对DirectByteBuffer进行业务操作吗?<ul><li>不能，如果需要对数据进行业务操作（编解码、解析、过滤），还是需要拷贝的jvm-heap。</li></ul></li><li>综上所述：和我之前想法也是一致的，与其说DirectByteBuffer节省了内存拷贝，倒不如说是因为HeapByteBuffer要多一次拷贝，所以DirectByteBuffer要快一些。</li><li>所以netty使用堆外内存进行优化是这样的：<ul><li>如果是用于RPC服务开发：利用堆外内存实现数据发送时的零拷贝，另外通过CompositeByteBuf的bytep[]组装功能实现零拷贝</li><li>如果是用于服务转接开发：利用堆外内存实现读取零拷贝</li><li>如果是ftp服务：利用transferTo实现零拷贝，这也是最正经的零拷贝概念，由DMA进行数据读取到内核，由内核发送到socket buffer，然后网卡传输出去</li></ul></li></ul></li></ul></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;blockquote&gt;
-&lt;p&gt;netty具备一个成熟的框架应该有的所有特性：高性能、可扩展、易用性。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;高性能&quot;&gt;&lt;a href=&quot;#高性能&quot; class=&quot;headerlink&quot; title=&quot;高性能&quot;&gt;&lt;/a&gt;高性能&lt;/h1
+        &lt;h1 id=&quot;IO基础&quot;&gt;&lt;a href=&quot;#IO基础&quot; class=&quot;headerlink&quot; title=&quot;IO基础&quot;&gt;&lt;/a&gt;IO基础&lt;/h1&gt;&lt;h3 id=&quot;BIO&quot;&gt;&lt;a href=&quot;#BIO&quot; class=&quot;headerlink&quot; title=&quot;BIO&quot;&gt;&lt;/a&gt;BI
       
     
     </summary>
@@ -109,39 +74,13 @@
       <category term="异步" scheme="http://yllwz.co/tags/%E5%BC%82%E6%AD%A5/"/>
     
       <category term="高性能" scheme="http://yllwz.co/tags/%E9%AB%98%E6%80%A7%E8%83%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>又开始了</title>
-    <link href="http://yllwz.co/2018/12/11/%E5%8F%88%E5%BC%80%E5%A7%8B%E4%BA%86/"/>
-    <id>http://yllwz.co/2018/12/11/又开始了/</id>
-    <published>2018-12-11T03:47:09.965Z</published>
-    <updated>2018-12-14T10:05:17.027Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>oooooooooooooooooooooooooooooooooooooo~</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;oooooooooooooooooooooooooooooooooooooo~&lt;/p&gt;
-&lt;/blockquote&gt;
-
-      
-    
-    </summary>
-    
-      <category term="心情" scheme="http://yllwz.co/categories/%E5%BF%83%E6%83%85/"/>
-    
     
   </entry>
   
   <entry>
     <title>HEXO安装教程</title>
-    <link href="http://yllwz.co/2018/12/11/hello-world/"/>
-    <id>http://yllwz.co/2018/12/11/hello-world/</id>
+    <link href="http://yllwz.co/2018/12/11/HEXO%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    <id>http://yllwz.co/2018/12/11/HEXO安装教程/</id>
     <published>2018-12-11T03:24:40.130Z</published>
     <updated>2018-12-14T09:55:50.081Z</updated>
     
