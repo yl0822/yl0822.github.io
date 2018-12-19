@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yllwz.co/"/>
-  <updated>2018-12-15T12:35:27.459Z</updated>
+  <updated>2018-12-19T11:33:13.725Z</updated>
   <id>http://yllwz.co/</id>
   
   <author>
@@ -15,6 +15,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习路线</title>
+    <link href="http://yllwz.co/2018/12/19/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yllwz.co/2018/12/19/学习笔记/</id>
+    <published>2018-12-19T09:41:26.776Z</published>
+    <updated>2018-12-19T11:33:13.725Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="广度"><a href="#广度" class="headerlink" title="广度"></a>广度</h2><ul><li>jdk</li><li>jvm</li><li>spring</li><li>rpc</li><li>mysql</li><li>mq</li><li>redis</li><li>分布式</li></ul><h2 id="深度"><a href="#深度" class="headerlink" title="深度"></a>深度</h2><ul><li>concurrency</li><li>spring</li><li>netty</li><li>mysql</li><li>redis</li></ul><h2 id="业务"><a href="#业务" class="headerlink" title="业务"></a>业务</h2><ul><li>闭环主链路</li></ul><h2 id="手写"><a href="#手写" class="headerlink" title="手写"></a>手写</h2><ul><li>DCL</li><li>CH</li><li>PC</li><li>LRU</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;广度&quot;&gt;&lt;a href=&quot;#广度&quot; class=&quot;headerlink&quot; title=&quot;广度&quot;&gt;&lt;/a&gt;广度&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;jdk&lt;/li&gt;
+&lt;li&gt;jvm&lt;/li&gt;
+&lt;li&gt;spring&lt;/li&gt;
+&lt;li&gt;rpc&lt;/li&gt;
+&lt;li&gt;mysql&lt;/li
+      
+    
+    </summary>
+    
+      <category term="Netty" scheme="http://yllwz.co/categories/Netty/"/>
+    
+    
+      <category term="网络" scheme="http://yllwz.co/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="异步" scheme="http://yllwz.co/tags/%E5%BC%82%E6%AD%A5/"/>
+    
+      <category term="高性能" scheme="http://yllwz.co/tags/%E9%AB%98%E6%80%A7%E8%83%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Netty学习笔记</title>
+    <link href="http://yllwz.co/2018/12/17/Netty%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yllwz.co/2018/12/17/Netty学习笔记/</id>
+    <published>2018-12-17T05:18:46.426Z</published>
+    <updated>2018-12-19T15:18:43.007Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><ul><li>见前篇：NIO知识拾取</li></ul><h2 id="接口体系"><a href="#接口体系" class="headerlink" title="接口体系"></a>接口体系</h2><h3 id="领域对象接口"><a href="#领域对象接口" class="headerlink" title="领域对象接口"></a>领域对象接口</h3><h4 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h4><ul><li>ChannelGroup：维护多个Channel并提供各种批量操作，关闭的Channel会被自动移除，用于将多个Channel进行业务分组</li></ul><h4 id="ChannelPipeline-gt-DefaultChannelPipeline"><a href="#ChannelPipeline-gt-DefaultChannelPipeline" class="headerlink" title="ChannelPipeline -&gt; DefaultChannelPipeline"></a>ChannelPipeline -&gt; DefaultChannelPipeline</h4><ul><li>持有head和tail两个ChannelHandlerContext作为入口节点</li><li>持有绑定的Channel</li><li>持有是否有绑定Channel</li><li>ChannelPipeline#fireChannelReadComplete默认传入</li></ul><h4 id="ChannelHandler"><a href="#ChannelHandler" class="headerlink" title="ChannelHandler"></a>ChannelHandler</h4><ul><li>用于用户进行功能扩展<ul><li>ConsumerRpcClientHandler -&gt; ChannelInboundHandlerAdapter</li><li>ConsumerRpcServerHandler -&gt; SimpleChannelInboundHandler -&gt; ChannelInboundHandlerAdapter</li></ul></li><li><p>用于IO行为处理，具体分为3类：</p><ul><li><p>不做任何跳转行为</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void channelActive(ChannelHandlerContext ctx) throws Exception &#123;</span><br><span class="line">       Channel incoming = ctx.channel();</span><br><span class="line">       logger.info(&quot;Socket客户端：[&quot; + incoming.remoteAddress() + &quot;] 建立连接成功.&quot;);</span><br><span class="line">       channelGroup.add(ctx.channel());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li><li><p>同类事件行为跳转</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public void channelReadComplete(ChannelHandlerContext ctx) throws Exception &#123;</span><br><span class="line">       numReads = 0;</span><br><span class="line">       discardSomeReadBytes();</span><br><span class="line">       if (decodeWasNull) &#123;</span><br><span class="line">           decodeWasNull = false;</span><br><span class="line">           if (!ctx.channel().config().isAutoRead()) &#123;</span><br><span class="line">               ctx.read();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       ctx.fireChannelReadComplete();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></li><li><p>不同事件行为跳转</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void channelReadComplete(ChannelHandlerContext ctx) &#123;</span><br><span class="line">       ctx.flush();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li></ul></li></ul><h4 id="ChannelHandlerContext-gt-AbstractChannelHandlerContext"><a href="#ChannelHandlerContext-gt-AbstractChannelHandlerContext" class="headerlink" title="ChannelHandlerContext -&gt; AbstractChannelHandlerContext"></a>ChannelHandlerContext -&gt; AbstractChannelHandlerContext</h4><ul><li>属性描述<ul><li>持有next和prev两个ChannelHandlerContext作为双向链接</li><li>持有所属ChannelPipeline对象</li><li>持有布尔类型的inbound和outbound属性</li><li>持有节点状态：初始化 -&gt; 待添加 -&gt; 已添加 -&gt; 已移除（）</li><li>（可能）持有自己的业务线程EventExecutor，如果没有默认使用NIO线程</li><li>如果配置了业务线程，那么将某些事件的处理逻辑封装为task交给业务线程处理，事件包括不限于（但是以下事件做了缓存）：<ul><li>invokeChannelReadCompleteTask：读取完成事件</li><li>invokeReadTask：读取事件</li><li>invokeChannelWritableStateChangedTask：写状态变更事件</li><li>invokeFlushTask：写数据发出事件</li></ul></li></ul></li><li>行为描述<ul><li><img src="https://note.youdao.com/yws/public/resource/9c93aa1a47a56a6a2483d2d49f827f9c/xmlnote/B2CEAAC7F1244252B7ED20025E72B322/47618" alt="行为集合"></li><li>传递行为，如红框所示：ChannelInboundHandler#channelRead</li><li>传递行为，如红框所示：ChannelOutboundHandler#read</li><li>核心行为一：ChannelHandlerContext#invokeChannelReadComplete(ChannelHandlerContext next)<ol><li>获取EventExecutor</li><li>判断EventExecutor是否是NIO线程</li><li>如果直接调用next的ChannelInboundHandler#channelReadComplete</li></ol></li></ul></li></ul><h4 id="ChannelInboundHandler"><a href="#ChannelInboundHandler" class="headerlink" title="ChannelInboundHandler"></a>ChannelInboundHandler</h4><h4 id="ChannelOutboundHandler"><a href="#ChannelOutboundHandler" class="headerlink" title="ChannelOutboundHandler"></a>ChannelOutboundHandler</h4><h3 id="领域行为接口"><a href="#领域行为接口" class="headerlink" title="领域行为接口"></a>领域行为接口</h3><h4 id="NioEventLoop"><a href="#NioEventLoop" class="headerlink" title="NioEventLoop"></a>NioEventLoop</h4><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="ReferenceCounted"><a href="#ReferenceCounted" class="headerlink" title="ReferenceCounted"></a>ReferenceCounted</h4><ul><li>被引用计数包含的对象，能够显示的被垃圾回收。当初始化的时候，计数为1。retain（）方法能够增加计数，release() 方法能够减少计数，如果计数被减少到0则对象会被显示回收，再次访问被回收的这些对象将会抛出异常。如果一个对象实现了ReferenceCounted，并且包含有其他对象也实现来ReferenceCounted，当这个对象计数为0被回收的时候，所包含的对象同样会通过release()释放掉。</li></ul><h2 id="实际云音乐的RPC-DEBUG"><a href="#实际云音乐的RPC-DEBUG" class="headerlink" title="实际云音乐的RPC-DEBUG"></a>实际云音乐的RPC-DEBUG</h2><h3 id="客户端调用链路"><a href="#客户端调用链路" class="headerlink" title="客户端调用链路"></a>客户端调用链路</h3><p>Channel.writeAndFlush -&gt; io.netty.channel.AbstractChannel#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>ChannelPipeline.writeAndFlush -&gt; io.netty.channel.DefaultChannelPipeline#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>ChannelHandlerContext.writeAndFlush -&gt; io.netty.channel.AbstractChannelHandlerContext#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>ChannelHandlerContext.writeAndFlush -&gt; io.netty.channel.AbstractChannelHandlerContext#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>Channel.writeAndFlush -&gt; io.netty.channel.AbstractChannel.AbstractUnsafe#write<br>         ||<br>         \/<br>Channel#flush -&gt; io.netty.channel.AbstractChannel.AbstractUnsafe#flush<br>         ||<br>         \/<br>NioSocketChannel#flush -&gt; io.netty.channel.socket.nio.NioSocketChannel#doWrite<br>         ||<br>         \/<br>SocketChannel#write -&gt; sun.nio.ch.SocketChannelImpl#write(java.nio.ByteBuffer)</p><h3 id="服务端调用链路"><a href="#服务端调用链路" class="headerlink" title="服务端调用链路"></a>服务端调用链路</h3><p>NioEventLoop#processSelectedKeysOptimized<br>         ||<br>         \/<br>AbstractNioByteChannel.NioByteUnsafe#read<br>         ||<br>         \/<br>DefaultChannelPipeline#fireChannelReadComplete<br>         ||<br>    (HeadContext)<br>         ||<br>         \/<br>AbstractChannelHandlerContext#invokeChannelReadComplete<br>         ||<br>         \/<br>ChannelInboundHandler#channelReadComplete<br>io.netty.handler.codec.ByteToMessageDecoder#channelReadComplete<br>io.netty.channel.ChannelHandlerContext#fireChannelReadComplete</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;基础篇&quot;&gt;&lt;a href=&quot;#基础篇&quot; class=&quot;headerlink&quot; title=&quot;基础篇&quot;&gt;&lt;/a&gt;基础篇&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;见前篇：NIO知识拾取&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;接口体系&quot;&gt;&lt;a href=&quot;#接口体系&quot; class=&quot;
+      
+    
+    </summary>
+    
+      <category term="Netty" scheme="http://yllwz.co/categories/Netty/"/>
+    
+    
+      <category term="网络" scheme="http://yllwz.co/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="异步" scheme="http://yllwz.co/tags/%E5%BC%82%E6%AD%A5/"/>
+    
+      <category term="高性能" scheme="http://yllwz.co/tags/%E9%AB%98%E6%80%A7%E8%83%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>Mysql学习笔记</title>
@@ -49,24 +115,24 @@
   </entry>
   
   <entry>
-    <title>Netty学习笔记</title>
-    <link href="http://yllwz.co/2018/12/14/Netty%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yllwz.co/2018/12/14/Netty学习笔记/</id>
+    <title>NIO知识拾取</title>
+    <link href="http://yllwz.co/2018/12/14/NIO%E7%9F%A5%E8%AF%86%E6%8B%BE%E5%8F%96/"/>
+    <id>http://yllwz.co/2018/12/14/NIO知识拾取/</id>
     <published>2018-12-14T11:45:33.269Z</published>
-    <updated>2018-12-15T14:26:38.992Z</updated>
+    <updated>2018-12-17T05:18:14.511Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="IO基础"><a href="#IO基础" class="headerlink" title="IO基础"></a>IO基础</h1><h3 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h3><ul><li>没有缓冲区，通过InputStream/OutputStream直接从用户空间到内核空间（<em>为什么这样效率很低?</em>）</li><li>同步阻塞IO，导致线程也被阻塞</li></ul><h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><ul><li><p>Buffer</p><ul><li>是一块可写入和读取的内存块，包装后提供了一组方法进行内存块的操作和访问</li><li><p>基本用法</p><ul><li>capacity：缓冲区总容量</li><li>position：游标位置（写操作下，游标和limit一样一直增加，rewind时，游标复位，limit不变，flip时，游标复位并将limit设置成之前position的值）</li><li>limit：缓冲区已用大小</li><li>flip()：- 当向buffer写入数据时，buffer会记录下写了多少数据。一旦要读取数据需要通过flip()方法将Buffer从写模式切换到读模式。在读模式下，可以读取之前写入到buffer的所有数据。</li><li>clear()：一旦读完了所有的数据，就需要清空缓冲区，让它可以再次被写入。有两种方式能清空缓冲区：调用clear()或compact()方法。clear()方法会清空整个缓冲区。compact()方法只会清除已经读过的数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">RandomAccessFile aFile = new RandomAccessFile(&quot;nio-data.txt&quot;, &quot;rw&quot;);</span><br><span class="line">FileChannel inChannel = aFile.getChannel();</span><br><span class="line">ByteBuffer buf = ByteBuffer.allocate(48); // 生成48字节大小的缓冲区</span><br><span class="line">int bytesRead = inChannel.read(buf); // 读取数据到缓冲区</span><br><span class="line">while (bytesRead != -1) &#123;</span><br><span class="line">  buf.flip();  // 准备从缓冲区读取数据</span><br><span class="line">  while(buf.hasRemaining())&#123;</span><br><span class="line">      System.out.print((char) buf.get()); // 每次读取1个字节</span><br><span class="line">  &#125;</span><br><span class="line">  buf.clear(); // 清空用于再次读取</span><br><span class="line">  bytesRead = inChannel.read(buf);</span><br><span class="line">&#125;</span><br><span class="line">aFile.close();</span><br></pre></td></tr></table></figure></li></ul></li><li><p>关于HeapByteBuffer和DirectByteBuffer的几个疑问释疑</p><ul><li>DirectByteBuffer是否是内核空间?<ul><li>DirectByteBuffer毫无疑问属于堆外内存，但是依然属于操作系统体系中的用户空间，它通过glibc的ptmalloc函数分配的内存。</li></ul></li><li>DirectByteBuffer为什么能提高效率?<ul><li>DirectByteBuffer能减少一次拷贝,也就是说即使直接用HeapByteBuffer进行IO的时候也会默认创建一个DirectByteBuffer进行中转</li></ul></li><li>为什么HeapByteBuffer不能直接写到内核空间而需要先拷贝到DirectByteBuffer再到内核空间?<ul><li>因为内核空间的ReadFile（<a href="https://blog.csdn.net/infant09/article/details/80044868" target="_blank" rel="noopener">FileInputStream与FileChannel对比</a>    ）方法要求必须连续的内存，且使用期间该内存不得被操作。<ul><li>而在jvm-heap上这两点都不能满足<ul><li>HeapByteBuffer分配出来的内存块处于jvm-heap上，在GC后（带有整理过程的算法如CMS），内存地址会改变</li><li>HeapByteBuffer持有的byte[]数组在jvm规范下并不要求内存连续</li></ul></li><li>而c-heap都能满足<ul><li>GC管不着，由操作系统进行内存空间管理</li><li>glibc.ptmalloc分配的内存保证连续</li></ul></li></ul></li></ul></li><li>能直接对DirectByteBuffer进行业务操作吗?<ul><li>不能，如果需要对数据进行业务操作（编解码、解析、过滤），还是需要拷贝的jvm-heap。</li></ul></li><li>综上所述：和我之前想法也是一致的，与其说DirectByteBuffer节省了内存拷贝，倒不如说是因为HeapByteBuffer要多一次拷贝，所以DirectByteBuffer要快一些。</li><li>所以netty使用堆外内存进行优化是这样的：<ul><li>如果是用于RPC服务开发：利用堆外内存实现数据发送时的零拷贝，另外通过CompositeByteBuf的bytep[]组装功能实现零拷贝</li><li>如果是用于服务转接开发：利用堆外内存实现读取零拷贝</li><li>如果是ftp服务：利用transferTo实现零拷贝，这也是最正经的零拷贝概念，由DMA进行数据读取到内核，由内核发送到socket buffer，然后网卡传输出去</li></ul></li></ul></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="IO基础"><a href="#IO基础" class="headerlink" title="IO基础"></a>IO基础</h2><h3 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h3><ul><li>没有缓冲区，通过InputStream/OutputStream直接从用户空间到内核空间（<em>为什么这样效率很低?</em>）</li><li>同步阻塞IO，导致线程也被阻塞</li></ul><h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><h4 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h4><pre><code>- 是一块可写入和读取的内存块，包装后提供了一组方法进行内存块的操作和访问- 基本用法    - capacity：缓冲区总容量    - position：游标位置（写操作下，游标和limit一样一直增加，rewind时，游标复位，limit不变，flip时，游标复位并将limit设置成之前position的值）    - limit：缓冲区已用大小    - flip()：- 当向buffer写入数据时，buffer会记录下写了多少数据。一旦要读取数据需要通过flip()方法将Buffer从写模式切换到读模式。在读模式下，可以读取之前写入到buffer的所有数据。    - clear()：一旦读完了所有的数据，就需要清空缓冲区，让它可以再次被写入。有两种方式能清空缓冲区：调用clear()或compact()方法。clear()方法会清空整个缓冲区。compact()方法只会清除已经读过的数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">RandomAccessFile aFile = new RandomAccessFile(&quot;nio-data.txt&quot;, &quot;rw&quot;);</span><br><span class="line">FileChannel inChannel = aFile.getChannel();</span><br><span class="line">ByteBuffer buf = ByteBuffer.allocate(48); // 生成48字节大小的缓冲区</span><br><span class="line">int bytesRead = inChannel.read(buf); // 读取数据到缓冲区</span><br><span class="line">while (bytesRead != -1) &#123;</span><br><span class="line">  buf.flip();  // 准备从缓冲区读取数据</span><br><span class="line">  while(buf.hasRemaining())&#123;</span><br><span class="line">      System.out.print((char) buf.get()); // 每次读取1个字节</span><br><span class="line">  &#125;</span><br><span class="line">  buf.clear(); // 清空用于再次读取</span><br><span class="line">  bytesRead = inChannel.read(buf);</span><br><span class="line">&#125;</span><br><span class="line">aFile.close();</span><br></pre></td></tr></table></figure>- 关于HeapByteBuffer和DirectByteBuffer的几个疑问释疑    - DirectByteBuffer是否是内核空间?        - DirectByteBuffer毫无疑问属于堆外内存，但是依然属于操作系统体系中的用户空间，它通过glibc的ptmalloc函数分配的内存。    - DirectByteBuffer为什么能提高效率?        - DirectByteBuffer能减少一次拷贝,也就是说即使直接用HeapByteBuffer进行IO的时候也会默认创建一个DirectByteBuffer进行中转    - 为什么HeapByteBuffer不能直接写到内核空间而需要先拷贝到DirectByteBuffer再到内核空间?        - 因为内核空间的ReadFile（[FileInputStream与FileChannel对比](https://blog.csdn.net/infant09/article/details/80044868)    ）方法要求必须连续的内存，且使用期间该内存不得被操作。            - 而在jvm-heap上这两点都不能满足                - HeapByteBuffer分配出来的内存块处于jvm-heap上，在GC后（带有整理过程的算法如CMS），内存地址会改变                - HeapByteBuffer持有的byte[]数组在jvm规范下并不要求内存连续            - 而c-heap都能满足                - GC管不着，由操作系统进行内存空间管理                - glibc.ptmalloc分配的内存保证连续    - 能直接对DirectByteBuffer进行业务操作吗?        - 不能，如果需要对数据进行业务操作（编解码、解析、过滤），还是需要拷贝的jvm-heap。    - 综上所述：和我之前想法也是一致的，与其说DirectByteBuffer节省了内存拷贝，倒不如说是因为HeapByteBuffer要多一次拷贝，所以DirectByteBuffer要快一些。    - 所以netty使用堆外内存进行优化是这样的：        - 如果是用于RPC服务开发：利用堆外内存实现数据发送时的零拷贝，另外通过CompositeByteBuf的bytep[]组装功能实现零拷贝        - 如果是用于服务转接开发：利用堆外内存实现读取零拷贝        - 如果是ftp服务：利用transferTo实现零拷贝，这也是最正经的零拷贝概念，由DMA进行数据读取到内核，由内核发送到socket buffer，然后网卡传输出去</code></pre><h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;IO基础&quot;&gt;&lt;a href=&quot;#IO基础&quot; class=&quot;headerlink&quot; title=&quot;IO基础&quot;&gt;&lt;/a&gt;IO基础&lt;/h1&gt;&lt;h3 id=&quot;BIO&quot;&gt;&lt;a href=&quot;#BIO&quot; class=&quot;headerlink&quot; title=&quot;BIO&quot;&gt;&lt;/a&gt;BI
+        &lt;h2 id=&quot;IO基础&quot;&gt;&lt;a href=&quot;#IO基础&quot; class=&quot;headerlink&quot; title=&quot;IO基础&quot;&gt;&lt;/a&gt;IO基础&lt;/h2&gt;&lt;h3 id=&quot;BIO&quot;&gt;&lt;a href=&quot;#BIO&quot; class=&quot;headerlink&quot; title=&quot;BIO&quot;&gt;&lt;/a&gt;BI
       
     
     </summary>
     
-      <category term="NETTY" scheme="http://yllwz.co/categories/NETTY/"/>
+      <category term="NIO" scheme="http://yllwz.co/categories/NIO/"/>
     
     
       <category term="网络" scheme="http://yllwz.co/tags/%E7%BD%91%E7%BB%9C/"/>

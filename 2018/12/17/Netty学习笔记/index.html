@@ -104,17 +104,20 @@
 
 
 
-  <meta name="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
-<meta name="keywords" content="技术、扯皮">
-<meta property="og:type" content="website">
-<meta property="og:title" content="码麦皮">
-<meta property="og:url" content="http://yllwz.co/tags/异步/index.html">
+  <meta name="description" content="基础篇 见前篇：NIO知识拾取  接口体系领域对象接口Channel ChannelGroup：维护多个Channel并提供各种批量操作，关闭的Channel会被自动移除，用于将多个Channel进行业务分组  ChannelPipeline -&amp;gt; DefaultChannelPipeline 持有head和tail两个ChannelHandlerContext作为入口节点 持有绑定的Cha">
+<meta name="keywords" content="网络,异步,高性能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Netty学习笔记">
+<meta property="og:url" content="http://yllwz.co/2018/12/17/Netty学习笔记/index.html">
 <meta property="og:site_name" content="码麦皮">
-<meta property="og:description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+<meta property="og:description" content="基础篇 见前篇：NIO知识拾取  接口体系领域对象接口Channel ChannelGroup：维护多个Channel并提供各种批量操作，关闭的Channel会被自动移除，用于将多个Channel进行业务分组  ChannelPipeline -&amp;gt; DefaultChannelPipeline 持有head和tail两个ChannelHandlerContext作为入口节点 持有绑定的Cha">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/9c93aa1a47a56a6a2483d2d49f827f9c/xmlnote/B2CEAAC7F1244252B7ED20025E72B322/47618">
+<meta property="og:updated_time" content="2018-12-19T15:18:43.007Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="码麦皮">
-<meta name="twitter:description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+<meta name="twitter:title" content="Netty学习笔记">
+<meta name="twitter:description" content="基础篇 见前篇：NIO知识拾取  接口体系领域对象接口Channel ChannelGroup：维护多个Channel并提供各种批量操作，关闭的Channel会被自动移除，用于将多个Channel进行业务分组  ChannelPipeline -&amp;gt; DefaultChannelPipeline 持有head和tail两个ChannelHandlerContext作为入口节点 持有绑定的Cha">
+<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/9c93aa1a47a56a6a2483d2d49f827f9c/xmlnote/B2CEAAC7F1244252B7ED20025E72B322/47618">
 
 
 
@@ -123,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yllwz.co/tags/异步/">
+  <link rel="canonical" href="http://yllwz.co/2018/12/17/Netty学习笔记/">
 
 
 
@@ -133,7 +136,7 @@
   };
 </script>
 
-  <title>标签: 异步 | 码麦皮</title>
+  <title>Netty学习笔记 | 码麦皮</title>
   
 
 
@@ -181,7 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -256,7 +259,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -361,134 +364,305 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>异步<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/17/Netty学习笔记/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yang Long">
+      <meta itemprop="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码麦皮">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/12/19/学习笔记/" itemprop="url">
-              
-                <span itemprop="name">学习路线</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Netty学习笔记
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-19T17:41:26+08:00" content="2018-12-19">
-          12-19
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-17 13:18:46" itemprop="dateCreated datePublished" datetime="2018-12-17T13:18:46+08:00">2018-12-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-19 23:18:43" itemprop="dateModified" datetime="2018-12-19T23:18:43+08:00">2018-12-19</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Netty/" itemprop="url" rel="index"><span itemprop="name">Netty</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/17/Netty学习笔记/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/17/Netty学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/17/Netty学习笔记/" itemprop="url">
-              
-                <span itemprop="name">Netty学习笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-17T13:18:46+08:00" content="2018-12-17">
-          12-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/14/NIO知识拾取/" itemprop="url">
-              
-                <span itemprop="name">NIO知识拾取</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-14T19:45:33+08:00" content="2018-12-14">
-          12-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><ul>
+<li>见前篇：NIO知识拾取</li>
+</ul>
+<h2 id="接口体系"><a href="#接口体系" class="headerlink" title="接口体系"></a>接口体系</h2><h3 id="领域对象接口"><a href="#领域对象接口" class="headerlink" title="领域对象接口"></a>领域对象接口</h3><h4 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h4><ul>
+<li>ChannelGroup：维护多个Channel并提供各种批量操作，关闭的Channel会被自动移除，用于将多个Channel进行业务分组</li>
+</ul>
+<h4 id="ChannelPipeline-gt-DefaultChannelPipeline"><a href="#ChannelPipeline-gt-DefaultChannelPipeline" class="headerlink" title="ChannelPipeline -&gt; DefaultChannelPipeline"></a>ChannelPipeline -&gt; DefaultChannelPipeline</h4><ul>
+<li>持有head和tail两个ChannelHandlerContext作为入口节点</li>
+<li>持有绑定的Channel</li>
+<li>持有是否有绑定Channel</li>
+<li>ChannelPipeline#fireChannelReadComplete默认传入</li>
+</ul>
+<h4 id="ChannelHandler"><a href="#ChannelHandler" class="headerlink" title="ChannelHandler"></a>ChannelHandler</h4><ul>
+<li>用于用户进行功能扩展<ul>
+<li>ConsumerRpcClientHandler -&gt; ChannelInboundHandlerAdapter</li>
+<li>ConsumerRpcServerHandler -&gt; SimpleChannelInboundHandler -&gt; ChannelInboundHandlerAdapter</li>
+</ul>
+</li>
+<li><p>用于IO行为处理，具体分为3类：</p>
+<ul>
+<li><p>不做任何跳转行为</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void channelActive(ChannelHandlerContext ctx) throws Exception &#123;</span><br><span class="line">       Channel incoming = ctx.channel();</span><br><span class="line">       logger.info(&quot;Socket客户端：[&quot; + incoming.remoteAddress() + &quot;] 建立连接成功.&quot;);</span><br><span class="line">       channelGroup.add(ctx.channel());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同类事件行为跳转</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public void channelReadComplete(ChannelHandlerContext ctx) throws Exception &#123;</span><br><span class="line">       numReads = 0;</span><br><span class="line">       discardSomeReadBytes();</span><br><span class="line">       if (decodeWasNull) &#123;</span><br><span class="line">           decodeWasNull = false;</span><br><span class="line">           if (!ctx.channel().config().isAutoRead()) &#123;</span><br><span class="line">               ctx.read();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       ctx.fireChannelReadComplete();</span><br><span class="line"> 		&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不同事件行为跳转</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void channelReadComplete(ChannelHandlerContext ctx) &#123;</span><br><span class="line">       ctx.flush();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ChannelHandlerContext-gt-AbstractChannelHandlerContext"><a href="#ChannelHandlerContext-gt-AbstractChannelHandlerContext" class="headerlink" title="ChannelHandlerContext -&gt; AbstractChannelHandlerContext"></a>ChannelHandlerContext -&gt; AbstractChannelHandlerContext</h4><ul>
+<li>属性描述<ul>
+<li>持有next和prev两个ChannelHandlerContext作为双向链接</li>
+<li>持有所属ChannelPipeline对象</li>
+<li>持有布尔类型的inbound和outbound属性</li>
+<li>持有节点状态：初始化 -&gt; 待添加 -&gt; 已添加 -&gt; 已移除（）</li>
+<li>（可能）持有自己的业务线程EventExecutor，如果没有默认使用NIO线程</li>
+<li>如果配置了业务线程，那么将某些事件的处理逻辑封装为task交给业务线程处理，事件包括不限于（但是以下事件做了缓存）：<ul>
+<li>invokeChannelReadCompleteTask：读取完成事件</li>
+<li>invokeReadTask：读取事件</li>
+<li>invokeChannelWritableStateChangedTask：写状态变更事件</li>
+<li>invokeFlushTask：写数据发出事件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>行为描述<ul>
+<li><img src="https://note.youdao.com/yws/public/resource/9c93aa1a47a56a6a2483d2d49f827f9c/xmlnote/B2CEAAC7F1244252B7ED20025E72B322/47618" alt="行为集合"></li>
+<li>传递行为，如红框所示：ChannelInboundHandler#channelRead</li>
+<li>传递行为，如红框所示：ChannelOutboundHandler#read</li>
+<li>核心行为一：ChannelHandlerContext#invokeChannelReadComplete(ChannelHandlerContext next)<ol>
+<li>获取EventExecutor</li>
+<li>判断EventExecutor是否是NIO线程</li>
+<li>如果直接调用next的ChannelInboundHandler#channelReadComplete</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ChannelInboundHandler"><a href="#ChannelInboundHandler" class="headerlink" title="ChannelInboundHandler"></a>ChannelInboundHandler</h4><h4 id="ChannelOutboundHandler"><a href="#ChannelOutboundHandler" class="headerlink" title="ChannelOutboundHandler"></a>ChannelOutboundHandler</h4><h3 id="领域行为接口"><a href="#领域行为接口" class="headerlink" title="领域行为接口"></a>领域行为接口</h3><h4 id="NioEventLoop"><a href="#NioEventLoop" class="headerlink" title="NioEventLoop"></a>NioEventLoop</h4><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="ReferenceCounted"><a href="#ReferenceCounted" class="headerlink" title="ReferenceCounted"></a>ReferenceCounted</h4><ul>
+<li>被引用计数包含的对象，能够显示的被垃圾回收。当初始化的时候，计数为1。retain（）方法能够增加计数，release() 方法能够减少计数，如果计数被减少到0则对象会被显示回收，再次访问被回收的这些对象将会抛出异常。如果一个对象实现了ReferenceCounted，并且包含有其他对象也实现来ReferenceCounted，当这个对象计数为0被回收的时候，所包含的对象同样会通过release()释放掉。</li>
+</ul>
+<h2 id="实际云音乐的RPC-DEBUG"><a href="#实际云音乐的RPC-DEBUG" class="headerlink" title="实际云音乐的RPC-DEBUG"></a>实际云音乐的RPC-DEBUG</h2><h3 id="客户端调用链路"><a href="#客户端调用链路" class="headerlink" title="客户端调用链路"></a>客户端调用链路</h3><p>Channel.writeAndFlush -&gt; io.netty.channel.AbstractChannel#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>ChannelPipeline.writeAndFlush -&gt; io.netty.channel.DefaultChannelPipeline#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>ChannelHandlerContext.writeAndFlush -&gt; io.netty.channel.AbstractChannelHandlerContext#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>ChannelHandlerContext.writeAndFlush -&gt; io.netty.channel.AbstractChannelHandlerContext#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>Channel.writeAndFlush -&gt; io.netty.channel.AbstractChannel.AbstractUnsafe#write<br>         ||<br>         \/<br>Channel#flush -&gt; io.netty.channel.AbstractChannel.AbstractUnsafe#flush<br>         ||<br>         \/<br>NioSocketChannel#flush -&gt; io.netty.channel.socket.nio.NioSocketChannel#doWrite<br>         ||<br>         \/<br>SocketChannel#write -&gt; sun.nio.ch.SocketChannelImpl#write(java.nio.ByteBuffer)</p>
+<h3 id="服务端调用链路"><a href="#服务端调用链路" class="headerlink" title="服务端调用链路"></a>服务端调用链路</h3><p>NioEventLoop#processSelectedKeysOptimized<br>         ||<br>         \/<br>AbstractNioByteChannel.NioByteUnsafe#read<br>         ||<br>         \/<br>DefaultChannelPipeline#fireChannelReadComplete<br>         ||<br>    (HeadContext)<br>         ||<br>         \/<br>AbstractChannelHandlerContext#invokeChannelReadComplete<br>         ||<br>         \/<br>ChannelInboundHandler#channelReadComplete<br>io.netty.handler.codec.ByteToMessageDecoder#channelReadComplete<br>io.netty.channel.ChannelHandlerContext#fireChannelReadComplete</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络/" rel="tag"># 网络</a>
+          
+            <a href="/tags/异步/" rel="tag"># 异步</a>
+          
+            <a href="/tags/高性能/" rel="tag"># 高性能</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/15/Mysql学习笔记/" rel="next" title="Mysql学习笔记">
+                <i class="fa fa-chevron-left"></i> Mysql学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/19/学习笔记/" rel="prev" title="学习路线">
+                学习路线 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -509,8 +683,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -646,6 +829,22 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础篇"><span class="nav-number">1.</span> <span class="nav-text">基础篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口体系"><span class="nav-number">2.</span> <span class="nav-text">接口体系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#领域对象接口"><span class="nav-number">2.1.</span> <span class="nav-text">领域对象接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Channel"><span class="nav-number">2.1.1.</span> <span class="nav-text">Channel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ChannelPipeline-gt-DefaultChannelPipeline"><span class="nav-number">2.1.2.</span> <span class="nav-text">ChannelPipeline -&gt; DefaultChannelPipeline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ChannelHandler"><span class="nav-number">2.1.3.</span> <span class="nav-text">ChannelHandler</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ChannelHandlerContext-gt-AbstractChannelHandlerContext"><span class="nav-number">2.1.4.</span> <span class="nav-text">ChannelHandlerContext -&gt; AbstractChannelHandlerContext</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ChannelInboundHandler"><span class="nav-number">2.1.5.</span> <span class="nav-text">ChannelInboundHandler</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ChannelOutboundHandler"><span class="nav-number">2.1.6.</span> <span class="nav-text">ChannelOutboundHandler</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#领域行为接口"><span class="nav-number">2.2.</span> <span class="nav-text">领域行为接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#NioEventLoop"><span class="nav-number">2.2.1.</span> <span class="nav-text">NioEventLoop</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">2.3.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ReferenceCounted"><span class="nav-number">2.3.1.</span> <span class="nav-text">ReferenceCounted</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际云音乐的RPC-DEBUG"><span class="nav-number">3.</span> <span class="nav-text">实际云音乐的RPC-DEBUG</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端调用链路"><span class="nav-number">3.1.</span> <span class="nav-text">客户端调用链路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端调用链路"><span class="nav-number">3.2.</span> <span class="nav-text">服务端调用链路</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -843,6 +1042,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
 
   
 
@@ -857,6 +1060,23 @@
     <script id="dsq-count-scr" src="https://disqus_B5BXyv8p8b.disqus.com/count.js" async></script>
   
 
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://yllwz.co/2018/12/17/Netty学习笔记/';
+        this.page.identifier = '2018/12/17/Netty学习笔记/';
+        this.page.title = 'Netty学习笔记';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://disqus_B5BXyv8p8b.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 

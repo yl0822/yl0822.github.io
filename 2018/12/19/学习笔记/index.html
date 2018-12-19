@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,7 +80,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     version: '6.6.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="IO基础BIO 没有缓冲区，通过InputStream/OutputStream直接从用户空间到内核空间（为什么这样效率很低?） 同步阻塞IO，导致线程也被阻塞  NIO Buffer  是一块可写入和读取的内存块，包装后提供了一组方法进行内存块的操作和访问 基本用法  capacity：缓冲区总容量 position：游标位置（写操作下，游标和limit一样一直增加，rewind时，游标复位，l">
+  <meta name="description" content="广度 jdk jvm spring rpc mysql mq redis 分布式  深度 concurrency spring netty mysql redis  业务 闭环主链路  手写 DCL CH PC LRU">
 <meta name="keywords" content="网络,异步,高性能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Netty学习笔记">
-<meta property="og:url" content="http://yllwz.co/2018/12/14/Netty学习笔记/index.html">
+<meta property="og:title" content="学习路线">
+<meta property="og:url" content="http://yllwz.co/2018/12/19/学习笔记/index.html">
 <meta property="og:site_name" content="码麦皮">
-<meta property="og:description" content="IO基础BIO 没有缓冲区，通过InputStream/OutputStream直接从用户空间到内核空间（为什么这样效率很低?） 同步阻塞IO，导致线程也被阻塞  NIO Buffer  是一块可写入和读取的内存块，包装后提供了一组方法进行内存块的操作和访问 基本用法  capacity：缓冲区总容量 position：游标位置（写操作下，游标和limit一样一直增加，rewind时，游标复位，l">
+<meta property="og:description" content="广度 jdk jvm spring rpc mysql mq redis 分布式  深度 concurrency spring netty mysql redis  业务 闭环主链路  手写 DCL CH PC LRU">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-15T14:26:38.992Z">
+<meta property="og:updated_time" content="2018-12-19T11:33:13.725Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Netty学习笔记">
-<meta name="twitter:description" content="IO基础BIO 没有缓冲区，通过InputStream/OutputStream直接从用户空间到内核空间（为什么这样效率很低?） 同步阻塞IO，导致线程也被阻塞  NIO Buffer  是一块可写入和读取的内存块，包装后提供了一组方法进行内存块的操作和访问 基本用法  capacity：缓冲区总容量 position：游标位置（写操作下，游标和limit一样一直增加，rewind时，游标复位，l">
+<meta name="twitter:title" content="学习路线">
+<meta name="twitter:description" content="广度 jdk jvm spring rpc mysql mq redis 分布式  深度 concurrency spring netty mysql redis  业务 闭环主链路  手写 DCL CH PC LRU">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yllwz.co/2018/12/14/Netty学习笔记/">
+  <link rel="canonical" href="http://yllwz.co/2018/12/19/学习笔记/">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>Netty学习笔记 | 码麦皮</title>
+  <title>学习路线 | 码麦皮</title>
   
 
 
@@ -319,9 +319,6 @@
   
 
   
-    
-
-  
 
   
     <div class="site-search">
@@ -363,6 +360,9 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+            
+
+          
           <div id="content" class="content">
             
 
@@ -382,7 +382,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/14/Netty学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/19/学习笔记/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yang Long">
@@ -399,7 +399,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Netty学习笔记
+          <h1 class="post-title" itemprop="name headline">学习路线
 
               
             
@@ -425,24 +425,12 @@
                 
               
 
-              <time title="创建时间：2018-12-14 19:45:33" itemprop="dateCreated datePublished" datetime="2018-12-14T19:45:33+08:00">2018-12-14</time>
+              <time title="创建时间：2018-12-19 17:41:26 / 修改时间：19:33:13" itemprop="dateCreated datePublished" datetime="2018-12-19T17:41:26+08:00">2018-12-19</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-15 22:26:38" itemprop="dateModified" datetime="2018-12-15T22:26:38+08:00">2018-12-15</time>
               
             
           </span>
@@ -459,7 +447,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/NETTY/" itemprop="url" rel="index"><span itemprop="name">NETTY</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Netty/" itemprop="url" rel="index"><span itemprop="name">Netty</span></a></span>
 
                 
                 
@@ -474,9 +462,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/14/Netty学习笔记/#comments" itemprop="discussionUrl">
+                <a href="/2018/12/19/学习笔记/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/14/Netty学习笔记/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/19/学习笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -511,65 +499,31 @@
       
 
       
-        <h1 id="IO基础"><a href="#IO基础" class="headerlink" title="IO基础"></a>IO基础</h1><h3 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h3><ul>
-<li>没有缓冲区，通过InputStream/OutputStream直接从用户空间到内核空间（<em>为什么这样效率很低?</em>）</li>
-<li>同步阻塞IO，导致线程也被阻塞</li>
+        <h2 id="广度"><a href="#广度" class="headerlink" title="广度"></a>广度</h2><ul>
+<li>jdk</li>
+<li>jvm</li>
+<li>spring</li>
+<li>rpc</li>
+<li>mysql</li>
+<li>mq</li>
+<li>redis</li>
+<li>分布式</li>
 </ul>
-<h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><ul>
-<li><p>Buffer</p>
-<ul>
-<li>是一块可写入和读取的内存块，包装后提供了一组方法进行内存块的操作和访问</li>
-<li><p>基本用法</p>
-<ul>
-<li>capacity：缓冲区总容量</li>
-<li>position：游标位置（写操作下，游标和limit一样一直增加，rewind时，游标复位，limit不变，flip时，游标复位并将limit设置成之前position的值）</li>
-<li>limit：缓冲区已用大小</li>
-<li>flip()：- 当向buffer写入数据时，buffer会记录下写了多少数据。一旦要读取数据需要通过flip()方法将Buffer从写模式切换到读模式。在读模式下，可以读取之前写入到buffer的所有数据。</li>
-<li>clear()：一旦读完了所有的数据，就需要清空缓冲区，让它可以再次被写入。有两种方式能清空缓冲区：调用clear()或compact()方法。clear()方法会清空整个缓冲区。compact()方法只会清除已经读过的数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">RandomAccessFile aFile = new RandomAccessFile(&quot;nio-data.txt&quot;, &quot;rw&quot;);</span><br><span class="line">FileChannel inChannel = aFile.getChannel();</span><br><span class="line">ByteBuffer buf = ByteBuffer.allocate(48); // 生成48字节大小的缓冲区</span><br><span class="line">int bytesRead = inChannel.read(buf); // 读取数据到缓冲区</span><br><span class="line">while (bytesRead != -1) &#123;</span><br><span class="line">  buf.flip();  // 准备从缓冲区读取数据</span><br><span class="line">  while(buf.hasRemaining())&#123;</span><br><span class="line">      System.out.print((char) buf.get()); // 每次读取1个字节</span><br><span class="line">  &#125;</span><br><span class="line">  buf.clear(); // 清空用于再次读取</span><br><span class="line">  bytesRead = inChannel.read(buf);</span><br><span class="line">&#125;</span><br><span class="line">aFile.close();</span><br></pre></td></tr></table></figure>
-</li>
+<h2 id="深度"><a href="#深度" class="headerlink" title="深度"></a>深度</h2><ul>
+<li>concurrency</li>
+<li>spring</li>
+<li>netty</li>
+<li>mysql</li>
+<li>redis</li>
 </ul>
-</li>
-<li><p>关于HeapByteBuffer和DirectByteBuffer的几个疑问释疑</p>
-<ul>
-<li>DirectByteBuffer是否是内核空间?<ul>
-<li>DirectByteBuffer毫无疑问属于堆外内存，但是依然属于操作系统体系中的用户空间，它通过glibc的ptmalloc函数分配的内存。</li>
+<h2 id="业务"><a href="#业务" class="headerlink" title="业务"></a>业务</h2><ul>
+<li>闭环主链路</li>
 </ul>
-</li>
-<li>DirectByteBuffer为什么能提高效率?<ul>
-<li>DirectByteBuffer能减少一次拷贝,也就是说即使直接用HeapByteBuffer进行IO的时候也会默认创建一个DirectByteBuffer进行中转</li>
-</ul>
-</li>
-<li>为什么HeapByteBuffer不能直接写到内核空间而需要先拷贝到DirectByteBuffer再到内核空间?<ul>
-<li>因为内核空间的ReadFile（<a href="https://blog.csdn.net/infant09/article/details/80044868" target="_blank" rel="noopener">FileInputStream与FileChannel对比</a>    ）方法要求必须连续的内存，且使用期间该内存不得被操作。<ul>
-<li>而在jvm-heap上这两点都不能满足<ul>
-<li>HeapByteBuffer分配出来的内存块处于jvm-heap上，在GC后（带有整理过程的算法如CMS），内存地址会改变</li>
-<li>HeapByteBuffer持有的byte[]数组在jvm规范下并不要求内存连续</li>
-</ul>
-</li>
-<li>而c-heap都能满足<ul>
-<li>GC管不着，由操作系统进行内存空间管理</li>
-<li>glibc.ptmalloc分配的内存保证连续</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>能直接对DirectByteBuffer进行业务操作吗?<ul>
-<li>不能，如果需要对数据进行业务操作（编解码、解析、过滤），还是需要拷贝的jvm-heap。</li>
-</ul>
-</li>
-<li>综上所述：和我之前想法也是一致的，与其说DirectByteBuffer节省了内存拷贝，倒不如说是因为HeapByteBuffer要多一次拷贝，所以DirectByteBuffer要快一些。</li>
-<li>所以netty使用堆外内存进行优化是这样的：<ul>
-<li>如果是用于RPC服务开发：利用堆外内存实现数据发送时的零拷贝，另外通过CompositeByteBuf的bytep[]组装功能实现零拷贝</li>
-<li>如果是用于服务转接开发：利用堆外内存实现读取零拷贝</li>
-<li>如果是ftp服务：利用transferTo实现零拷贝，这也是最正经的零拷贝概念，由DMA进行数据读取到内核，由内核发送到socket buffer，然后网卡传输出去</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<h2 id="手写"><a href="#手写" class="headerlink" title="手写"></a>手写</h2><ul>
+<li>DCL</li>
+<li>CH</li>
+<li>PC</li>
+<li>LRU</li>
 </ul>
 
       
@@ -611,8 +565,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/11/HEXO安装教程/" rel="next" title="HEXO安装教程">
-                <i class="fa fa-chevron-left"></i> HEXO安装教程
+              <a href="/2018/12/17/Netty学习笔记/" rel="next" title="Netty学习笔记">
+                <i class="fa fa-chevron-left"></i> Netty学习笔记
               </a>
             
           </div>
@@ -620,10 +574,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/15/Mysql学习笔记/" rel="prev" title="Mysql学习笔记">
-                Mysql学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -702,7 +652,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -723,7 +673,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -827,7 +781,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IO基础"><span class="nav-number">1.</span> <span class="nav-text">IO基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BIO"><span class="nav-number">1.0.1.</span> <span class="nav-text">BIO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NIO"><span class="nav-number">1.0.2.</span> <span class="nav-text">NIO</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#广度"><span class="nav-number">1.</span> <span class="nav-text">广度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度"><span class="nav-number">2.</span> <span class="nav-text">深度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#业务"><span class="nav-number">3.</span> <span class="nav-text">业务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手写"><span class="nav-number">4.</span> <span class="nav-text">手写</span></a></li></ol></div>
             
 
           </div>
@@ -867,7 +821,7 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.6.0</div>
 
 
 
@@ -963,6 +917,8 @@
 
 
 
+  
+
 
 
 
@@ -1002,6 +958,11 @@
     <script src="/lib/three/canvas_sphere.min.js"></script>
   
 
+  
+  
+    <script id="ribbon" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
 
   
 
@@ -1014,6 +975,13 @@
 
   
   
+
+
+  <script src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
 
   
   <script src="/js/src/scrollspy.js?v=6.6.0"></script>
@@ -1037,9 +1005,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = 'http://yllwz.co/2018/12/14/Netty学习笔记/';
-        this.page.identifier = '2018/12/14/Netty学习笔记/';
-        this.page.title = 'Netty学习笔记';
+        this.page.url = 'http://yllwz.co/2018/12/19/学习笔记/';
+        this.page.identifier = '2018/12/19/学习笔记/';
+        this.page.title = '学习路线';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
