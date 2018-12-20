@@ -104,20 +104,17 @@
 
 
 
-  <meta name="description" content="基础篇 见前篇：NIO知识拾取  接口体系领域对象接口Channel ChannelGroup：维护多个Channel并提供各种批量操作，关闭的Channel会被自动移除，用于将多个Channel进行业务分组  ChannelPipeline -&amp;gt; DefaultChannelPipeline 持有head和tail两个ChannelHandlerContext作为入口节点 持有绑定的Cha">
-<meta name="keywords" content="网络,异步,高性能">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Netty学习笔记">
-<meta property="og:url" content="http://yllwz.co/2018/12/17/Netty学习笔记/index.html">
+  <meta name="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+<meta name="keywords" content="技术、扯皮">
+<meta property="og:type" content="website">
+<meta property="og:title" content="码麦皮">
+<meta property="og:url" content="http://yllwz.co/page/2/index.html">
 <meta property="og:site_name" content="码麦皮">
-<meta property="og:description" content="基础篇 见前篇：NIO知识拾取  接口体系领域对象接口Channel ChannelGroup：维护多个Channel并提供各种批量操作，关闭的Channel会被自动移除，用于将多个Channel进行业务分组  ChannelPipeline -&amp;gt; DefaultChannelPipeline 持有head和tail两个ChannelHandlerContext作为入口节点 持有绑定的Cha">
+<meta property="og:description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://note.youdao.com/yws/public/resource/9c93aa1a47a56a6a2483d2d49f827f9c/xmlnote/B2CEAAC7F1244252B7ED20025E72B322/47618">
-<meta property="og:updated_time" content="2018-12-19T15:18:43.007Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Netty学习笔记">
-<meta name="twitter:description" content="基础篇 见前篇：NIO知识拾取  接口体系领域对象接口Channel ChannelGroup：维护多个Channel并提供各种批量操作，关闭的Channel会被自动移除，用于将多个Channel进行业务分组  ChannelPipeline -&amp;gt; DefaultChannelPipeline 持有head和tail两个ChannelHandlerContext作为入口节点 持有绑定的Cha">
-<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/9c93aa1a47a56a6a2483d2d49f827f9c/xmlnote/B2CEAAC7F1244252B7ED20025E72B322/47618">
+<meta name="twitter:title" content="码麦皮">
+<meta name="twitter:description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
 
 
 
@@ -126,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yllwz.co/2018/12/17/Netty学习笔记/">
+  <link rel="canonical" href="http://yllwz.co/page/2/">
 
 
 
@@ -136,7 +133,7 @@
   };
 </script>
 
-  <title>Netty学习笔记 | 码麦皮</title>
+  <title>码麦皮</title>
   
 
 
@@ -184,7 +181,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -367,9 +365,9 @@
           
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -401,8 +399,10 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Netty学习笔记
-
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/12/17/Netty学习笔记/" class="post-title-link" itemprop="http://yllwz.co/page/2/index.html">Netty学习笔记</a>
               
             
           </h1>
@@ -488,13 +488,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
 
           
 
@@ -513,7 +506,9 @@
       
 
       
-        <h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><ul>
+        
+          
+            <h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><ul>
 <li>见前篇：NIO知识拾取</li>
 </ul>
 <h2 id="接口体系"><a href="#接口体系" class="headerlink" title="接口体系"></a>接口体系</h2><h3 id="领域对象接口"><a href="#领域对象接口" class="headerlink" title="领域对象接口"></a>领域对象接口</h3><h4 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h4><ul>
@@ -580,6 +575,8 @@
 <h2 id="实际云音乐的RPC-DEBUG"><a href="#实际云音乐的RPC-DEBUG" class="headerlink" title="实际云音乐的RPC-DEBUG"></a>实际云音乐的RPC-DEBUG</h2><h3 id="客户端调用链路"><a href="#客户端调用链路" class="headerlink" title="客户端调用链路"></a>客户端调用链路</h3><p>Channel.writeAndFlush -&gt; io.netty.channel.AbstractChannel#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>ChannelPipeline.writeAndFlush -&gt; io.netty.channel.DefaultChannelPipeline#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>ChannelHandlerContext.writeAndFlush -&gt; io.netty.channel.AbstractChannelHandlerContext#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>ChannelHandlerContext.writeAndFlush -&gt; io.netty.channel.AbstractChannelHandlerContext#writeAndFlush(java.lang.Object, io.netty.channel.ChannelPromise)<br>         ||<br>         \/<br>Channel.writeAndFlush -&gt; io.netty.channel.AbstractChannel.AbstractUnsafe#write<br>         ||<br>         \/<br>Channel#flush -&gt; io.netty.channel.AbstractChannel.AbstractUnsafe#flush<br>         ||<br>         \/<br>NioSocketChannel#flush -&gt; io.netty.channel.socket.nio.NioSocketChannel#doWrite<br>         ||<br>         \/<br>SocketChannel#write -&gt; sun.nio.ch.SocketChannelImpl#write(java.nio.ByteBuffer)</p>
 <h3 id="服务端调用链路"><a href="#服务端调用链路" class="headerlink" title="服务端调用链路"></a>服务端调用链路</h3><p>NioEventLoop#processSelectedKeysOptimized<br>         ||<br>         \/<br>AbstractNioByteChannel.NioByteUnsafe#read<br>         ||<br>         \/<br>DefaultChannelPipeline#fireChannelReadComplete<br>         ||<br>    (HeadContext)<br>         ||<br>         \/<br>AbstractChannelHandlerContext#invokeChannelReadComplete<br>         ||<br>         \/<br>ChannelInboundHandler#channelReadComplete<br>io.netty.handler.codec.ByteToMessageDecoder#channelReadComplete<br>io.netty.channel.ChannelHandlerContext#fireChannelReadComplete</p>
 
+          
+        
       
     </div>
 
@@ -600,44 +597,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/网络/" rel="tag"># 网络</a>
-          
-            <a href="/tags/异步/" rel="tag"># 异步</a>
-          
-            <a href="/tags/高性能/" rel="tag"># 高性能</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/12/15/Mysql学习笔记/" rel="next" title="Mysql学习笔记">
-                <i class="fa fa-chevron-left"></i> Mysql学习笔记
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/20/技术basara（一）/" rel="prev" title="技术basara（一）">
-                技术basara（一） <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -647,22 +614,816 @@
   </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/15/Mysql学习笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yang Long">
+      <meta itemprop="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码麦皮">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/12/15/Mysql学习笔记/" class="post-title-link" itemprop="http://yllwz.co/page/2/index.html">Mysql学习笔记</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-15 15:12:43" itemprop="dateCreated datePublished" datetime="2018-12-15T15:12:43+08:00">2018-12-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-19 23:18:43" itemprop="dateModified" datetime="2018-12-19T23:18:43+08:00">2018-12-19</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/15/Mysql学习笔记/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/15/Mysql学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><ol>
+<li>连接池组件</li>
+<li>管理服务和工具组件</li>
+<li>SQL接口组件</li>
+<li>查询优化器组件</li>
+<li>优化器组件</li>
+<li>缓存组件</li>
+<li>插件式存储引擎（是mysql区别于其他db的重要特性，不同引擎有不同特点，开发者可以根据引擎接口编写主键的存储引擎或者修改已有引擎的源码来实现自己的需求）</li>
+<li>物理文件</li>
+</ol>
+<h2 id="InnoDB基础"><a href="#InnoDB基础" class="headerlink" title="InnoDB基础"></a>InnoDB基础</h2><blockquote>
+<p>划重点：很多人用</p>
+</blockquote>
+<h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><ol>
+<li>支持事务（OLTP（联机事务处理过程）应用常见需求）</li>
+<li>支持行锁（提高单表并发能力）</li>
+<li>支持MVCC（实现读写并发和基于该特性实现的隔离级别）</li>
+<li>支持外键（分布式部署下不建议使用）</li>
+</ol>
+<h4 id="高级功能"><a href="#高级功能" class="headerlink" title="高级功能"></a>高级功能</h4><ul>
+<li>插入缓冲</li>
+<li>二次写：doubl ewrite：看不懂，应该是个保障服务器宕机后的数据一致性机制，skip it！</li>
+<li>自适应哈希索引<ul>
+<li>哈希查找很快O(1)</li>
+<li>innodb是否建立hash表由系统决定，不能人为干预，所以叫自适应</li>
+<li>通过buffer_pool的B+树构造，且按需建立，所以建立速度很快</li>
+<li>提高读写数据（聚集索引提升2倍，普通索引5倍）</li>
+</ul>
+</li>
+<li>预读</li>
+</ul>
+<h4 id="其他描述"><a href="#其他描述" class="headerlink" title="其他描述"></a>其他描述</h4><ul>
+<li>表空间：ibd文件，由InnoDB管理</li>
+<li>聚集索引：表的存储按聚集索引的顺序存放</li>
+</ul>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
+<li>TCP方式：mysql -h 192.168.0.1 -u root -p root<ul>
+<li>mysql通过持有一张权限表来判断TCP权限：user表</li>
+</ul>
+</li>
+</ul>
+<h2 id="InnoDB体系"><a href="#InnoDB体系" class="headerlink" title="InnoDB体系"></a>InnoDB体系</h2><h3 id="架构模型"><a href="#架构模型" class="headerlink" title="架构模型"></a>架构模型</h3><ul>
+<li>拥有多个内存块 -&gt; 内存池，负责：<ul>
+<li>维护所有mysql线程/进程需要访问的数据资源</li>
+<li>缓存磁盘数据，方便快速读取，缓冲写操作，并通过后续的脏页刷盘达到顺序写的效果提高效率</li>
+<li>存储各种过日志：redo、undo、slow、query<ul>
+<li>buffer pool</li>
+<li>redo log buffer</li>
+<li>additional memory pool</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>后台线程，负责：<ul>
+<li>根据LRU原则从磁盘读取并刷新内存池数据</li>
+<li>将写数据刷新到磁盘保证ACID特性</li>
+<li>7个线程：<ul>
+<li>4个IO线程(可配置，默认4)<ul>
+<li>insert buffer thread</li>
+<li>log thread</li>
+<li>read thread</li>
+<li>write thread</li>
+</ul>
+</li>
+<li>1个master线程</li>
+<li>1个锁监控线程</li>
+<li>1个错误监控线程</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>工作方式<ul>
+<li>以页(16K)为单位将数据从磁盘读取到buffer pool，线程按LRU算法操作</li>
+<li>写操作时，先修改在缓冲池中的页并将操作日志存放到redolog中进行持久化，成为脏页后按一定的频率进行刷盘，如果脏页刷盘失败如服务器挂掉，则重启后从redolog进行恢复</li>
+</ul>
+</li>
+<li>内存构成详细<ul>
+<li>buffer pool<ul>
+<li><code>innodb_buffer_pool_size</code>指定缓冲池大小</li>
+<li><code>show engine innodb status</code>查看buffer pool的使用情况<ul>
+<li>buffer pool size：总大小</li>
+<li>free buffers：可用大小</li>
+<li>database pages：已用大小</li>
+<li>modified db pages：脏页大小</li>
+</ul>
+</li>
+<li>存放内容<ul>
+<li><strong>索引页</strong>（核心）</li>
+<li><strong>数据页</strong>（核心）</li>
+<li>undo页</li>
+<li>插入缓冲：在单条记录插入时，<ul>
+<li>聚集索引插入顺序读取，无效率问题</li>
+<li>普通索引无顺序，且可能会有多个，插入效率降低（B+树的特性）</li>
+<li>判断普通索引页是否在缓冲区，如果在直接更新，如果不在存放在插入缓冲区，通过master thread进行merge操作，这样可以将多个普通索引插入操作合并到一个merge操作中，大大提高普通索引的插入和修改性能，某种意义上也是脏页的一种，所以如果考虑服务器宕机的情况，就会需要很长时间的恢复操作。<br><em>引申一点：在单机环境下总是要考虑服务器是不可靠的是会宕机的，而在分布式环境下，除了要考虑单机宕机还要考虑网络传输是不可靠的，甚至是不安全的（信息截取），从这两个方面引申出来的就是目前互联网上各种系统、中间件如此复杂的最大原因之一，比如：单点问题、高可用、主从、CAP、分布式事务、一致性协议、HTTPS等等</em></li>
+</ul>
+</li>
+<li>自适应hash索引</li>
+<li>锁信息</li>
+<li>数据字典</li>
+</ul>
+</li>
+<li>从上述可以看到没有redolog，那么放哪里呢？</li>
+</ul>
+</li>
+<li>日志缓冲log_buffer：用于redolog缓冲，落盘到redolog之后可以重用，所以无需设置太大</li>
+<li>额外内存：理解为用于管理buffer pool的一些元数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="线程详解"><a href="#线程详解" class="headerlink" title="线程详解"></a>线程详解</h3><ul>
+<li>master thread核心工作线程<ul>
+<li>小循环操作（每秒）<ul>
+<li>脏页刷盘</li>
+<li>redolog日志刷盘（由于write_ahead机制log_buffer中的数据从事务开始就写，但是即使事务没有提交，也会进行这一步的刷盘操作，提高大事务的commit效率）</li>
+<li>合并插入缓冲（将多条写语句merge为一条）</li>
+</ul>
+</li>
+<li>大循环操作（每10秒）<ul>
+<li>除了上述三个动作也会做，还负责：</li>
+<li>删除undo页（在MVCC机制下，只要当undo的数据版本没有在任何一个事务中作为快照返回才能进行删除操作）</li>
+<li>生成checkpoint</li>
+</ul>
+</li>
+<li>高并发下的缺点<ul>
+<li>没有跟上硬件（SSD）的发展速度导致它这种模式慢</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><ul>
+<li>分类如下：<ul>
+<li>参数文件<ul>
+<li>kv结构，保存mysql所有配置数据</li>
+<li><code>show varables like &#39;%%&#39;</code>查看全部数据</li>
+</ul>
+</li>
+<li>日志文件<ul>
+<li>errorlog（用于dba错误排查）</li>
+<li>slowlog（用于sql优化）</li>
+<li>querylog（好像没什么卵用）</li>
+<li>binlog（记录所有写操作，用于本机恢复和replica同步）</li>
+</ul>
+</li>
+<li>socket文件</li>
+<li>pid文件</li>
+<li>表结构文件（mysql系统对表结构信息的存储）</li>
+<li>存储引擎文件（innodb对表结构信息的存储）<ul>
+<li>表空间文件（存储表数据）</li>
+<li>重做日志文件：<ul>
+<li>存在多份，记录事务日志，空间可以复用，脏页刷盘后可以被覆写。</li>
+<li>作用是如果服务器挂掉，服务器重启会读取redolog进行事务数据恢复保证ACID特性不被破坏。</li>
+<li>和binlog的区别：<ul>
+<li>binlog记录mysql所有引擎的动作</li>
+<li>binlog记录事务具体操作，redolog记录页的变更情况（这里和脏页建立关联，从而配合第一条的刷盘覆写）</li>
+<li>binlog再事务提交前才进行记录，redolog在事务开始过程中不断写入（当然考虑日志缓冲，但是配合master thread的未提交刷盘动作，说是不断写入也是正确的）<br><em>顺便说下binlog的三种记录模式：row-&gt;记录每一行的修改操作，statement-&gt;记录每一条修改操作，mix-&gt;根据结果选择上述其中一种，比如删全表100条，row模式记录100条日志，statement记录一条即可，mix的选择判断来源于expain的rows信息</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="表"><a href="#表" class="headerlink" title="表"></a>表</h3><blockquote>
+<p>数据的存放和组织<br>组成结构：tablespace -&gt; segment -&gt; extent -&gt; page -&gt; row</p>
+</blockquote>
+<ul>
+<li>tablespace，存放内容如下：（其他信息存放在共享表空间，<em>和额外内存的关系???</em>）<ul>
+<li>数据</li>
+<li>索引</li>
+<li>插入缓冲</li>
+</ul>
+</li>
+<li>segment：<ul>
+<li>数据段：innodb数据由聚集索引组织，所以数据段就是B+树的叶子节点</li>
+<li>索引段：B+树的非叶子节点</li>
+<li>回滚段</li>
+</ul>
+</li>
+<li>extent：<strong>连续</strong>64个页组成</li>
+<li>page：innodb磁盘管理的最小单位，16K<ul>
+<li>根据存放内容划分的不同页类型：<ul>
+<li>数据页</li>
+<li>undo页</li>
+<li>系统页</li>
+<li>事务数据页</li>
+<li>插入缓冲位图页</li>
+<li>插入缓冲空闲列表页</li>
+<li>未压缩的二进制大对象页</li>
+<li>压缩的二进制大对象页</li>
+</ul>
+</li>
+<li>页的存放结构<ul>
+<li>file header<ul>
+<li>页所属空间</li>
+<li>表空间页的偏移量</li>
+<li>上下页引用（B+树的叶节点的双向关联）</li>
+<li>页最后修改的LSN（log sequence number）</li>
+<li>页类型</li>
+</ul>
+</li>
+<li>page header</li>
+<li>infimun + supremum records</li>
+<li>user records</li>
+<li>free space</li>
+<li>page directory</li>
+<li>file trailer<br><em>感觉和java的对象结构和类结构很像，顺便回忆一下java对象结构：Object header(markword(hashcode +  gc age + flag + lock status) + klass pointer + array size)+ object body + padding，类结构：cafe babe + sub version + main version + constants pool size + constant pool + access flag + field + method + code + …</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>row：innodb存放数据的单位，每一页最多存储8千行</li>
+<li>skip数据完整性约束部分，因为分布式数据库一般禁止使用外键、视图、存储过程，甚至唯一键都希望能在程序中进行保证而不是通过数据库。</li>
+<li>skip分区表，不知道是什么鬼（在学习知识的过程中，进行信息筛选也是非常重要的）</li>
+</ul>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><blockquote>
+<p>lielaliela终于来了~</p>
+</blockquote>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>索引用于提高查询效率，但是减低写效率，是一种均衡的考虑。<em>tip：所有技术选型其实都是折衷和均衡的艺术</em></li>
+<li>查询算法三板斧<ul>
+<li>哈希：O(1)，可惜不支持顺序，但是使用DB的应用顺序查询是非常重要的<em>脱离实际业务的技术都是耍流氓</em>，所以mysql很少用到哈希，唯一用到地方就是上述的自适应哈希索引。</li>
+<li>顺序：O(n)，属于鸡肋，弃之。</li>
+<li>二叉树：O(logn)，属于顺序和查询皆可的方式，原生二叉树查找在DB大数据量的层面下显得太书生气，一个是树高太高导致IO次数太多，一个是节点存储数据太少，导致无法利用磁盘预读，于是进行改造后形成B+树，每个非叶子节点存储一页数据（16K），比如一个自增主键索引用16位的long类型，那么能存储1000个子节点，子节点同理，也就是到第三阶，就能存储几亿级别的数据量<br>，另外B+树叶子节点之间通过双向连接，在顺序查询的效率上更加高效。另外根据上述的索引构成，B+树索引并不能找到具体数据所在行，而只能找到行所在页，所以mysql通过将页读入内存再进行查找才能得到数据。</li>
+</ul>
+</li>
+<li>一般来说，应用的数据的表都不会多的离谱，所以一般2-3阶B+树就能满足所有的需求，也就是IO2-3尺就能拿到数据所在的页，根据普通SATA盘的寻道时间10ms左右，所以20-30ms就能查到数据相应数据，当然具体来说需要根据使用的索引类型和查询范围来确定。</li>
+<li>聚集索引<ul>
+<li>如上述所言，innodb通过聚集索引的顺序来进行数据存储，那么以聚集索引构建的B+树的叶子节点也就是实际磁盘中的数据存储顺序，实际上其实就是这样：聚集索引的叶子节点直接存储行数据，这个特性决定了：<ul>
+<li>数据是索引的一部分</li>
+<li>只能以一颗B+树顺序进行构建，所以只能有一个聚集索引</li>
+<li>普通索引的叶子节点存放聚集索引的值，然后通过二次查找进行数据获取</li>
+<li>因为能在叶子节点上直接找到数据，所以通过聚集索引查询效率更高<em>这里有个例外情况：如果我们查找的数据就是聚集索引所在的字段，那么通过普通查询获取到了聚集索引之后就无需进行二次查找，直接返回，再考虑到行数据所占空间肯定比聚集索引字段占用空间大，于是单位页下后者能存储的数据量更多，所以定位的速度更快，这就是覆盖索引的原理</em></li>
+</ul>
+</li>
+<li>聚集索引决定了数据的存储顺序，这里要注意的是并不是物理顺序，而是逻辑顺序，因为如果是物理顺序，由于行数据所占空间大小的不确定性，要维护这个物理顺序是非常困难的，实际它是通过在页间用双向链表，页内也是双向链表的方式进行数据组织。</li>
+</ul>
+</li>
+<li>非聚集索引：也叫二级索引、普通索引、辅助索引<ul>
+<li>不决定数据顺序，所以可以有多个普通索引</li>
+<li>也是由于不决定数据顺序，所以进行的是随机读，确实导致读取效率是偏低的，但是通过预读和缓冲区等技术减低了相应成本。</li>
+</ul>
+</li>
+<li>联合索引<ul>
+<li>联合索引也只建立一颗B+树</li>
+<li>根据索引组合的顺序如a+b+c建立，整体视角下，a是有序的，在a确定之后，b才是有序的，而整体视图下b本身是无序的，如果后面还有依次类推，于是有下面机制<ul>
+<li>头部匹配</li>
+<li>配合sql索引优化器，如果建立了abc联合索引，那么所有组合：<ul>
+<li>a（可以）</li>
+<li>b（不可以）</li>
+<li>c（不可以）</li>
+<li>ab（可以）</li>
+<li>ba（可以）</li>
+<li>ac（可以）</li>
+<li>ca（可以）</li>
+<li>bc（不可以）</li>
+<li>cb（不可以）</li>
+<li>abc（可以）</li>
+<li>acb（可以）</li>
+<li>bac（可以）</li>
+<li>bca（可以）</li>
+<li>cab（可以）</li>
+<li>cba（可以）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>索引管理<ul>
+<li>索引的增删：创建新表（新索引） -&gt; 导入数据 -&gt; 删除原表 -&gt;命名新表为原表</li>
+<li>快速创建方式：只针对普通索引，聚集索引还是按上述方式处理：表加上读锁 -&gt; 更新内部视图 -&gt; 标记普通索引空间为可用 -&gt; 删除视图上的定义。</li>
+<li><code>show index from table</code>查看索引信息，其中有个关键信息：cardinality(区分度)（distinct(index_field)/table_count）用于描述该索引下区分度，也就是说cardinality=1意味着唯一索引，如果很小，就应该是否应该建立索引。该值是并不会在实时更新，是一个概值，用于索引优化器进行判断是否需要走索引或者是走扫描方式。</li>
+<li>什么时候考虑建普通索引：<ul>
+<li>高区分度（无区分度比如不建,比如boolean值建索引）</li>
+<li>少量获取（虽然区分度高但是大量获取，比如获取time &lt; now）</li>
+<li>针对上面两种情况，我们是不建议建索引吗，但是即便你建立了索引，优化器也可能不会走</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>其他概念了解<ul>
+<li>顺序读：虽然上面提高聚集索引的数据也只是逻辑顺序并不是磁盘顺序，本质上也是随机读，但是从整体上来看是存在一定顺序，比如在区上是连续的64个页。</li>
+<li>随机读：需要磁头不断移动，SATA盘瓶颈正是在于寻址时间长，所以效率低（SSD如何?）。</li>
+<li>预读：一次IO请求获取多个页数据放在buffer pool，这种机制下，聚集索引就更有优势，有可能一次IO就能完成数据查找，而对随机读来说，获取的数据量越多，数据可能存在的概率也越大，减少随机读的次数的概率也越大。</li>
+</ul>
+</li>
+</ul>
+<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><blockquote>
+<p>如上所述，所有架构选型都是均衡的艺术：数据库的选型就是性能（并发）和一致性的均衡。<br>保证一致性的方式：锁</p>
+</blockquote>
+<h3 id="DB区分于文件系统的特性"><a href="#DB区分于文件系统的特性" class="headerlink" title="DB区分于文件系统的特性"></a>DB区分于文件系统的特性</h3><ul>
+<li>完整性约束</li>
+<li>锁</li>
+<li>事务</li>
+</ul>
+<h3 id="innodb的锁"><a href="#innodb的锁" class="headerlink" title="innodb的锁"></a>innodb的锁</h3><ul>
+<li>共享锁：读读并发，读写互斥，写写互斥</li>
+<li>独占锁：独占！</li>
+<li>意向锁：表级别的锁，目的是为了在事务中<strong>揭示</strong>下一行要被请求的锁的类型（看不懂(┬＿┬)）</li>
+</ul>
+<h3 id="三张表"><a href="#三张表" class="headerlink" title="三张表"></a>三张表</h3><ul>
+<li>innodb_trx<ul>
+<li>事务ID</li>
+<li>当前事务状态</li>
+<li>事务开始时间（可以用于快照的版本确定）</li>
+<li>等待目标事务的<strong>锁ID</strong>，配合事务状态为lock wait</li>
+<li>事务等待开始时间</li>
+<li>事务权重（死锁时权重最小的回滚）</li>
+<li>线程ID</li>
+<li>事务运行的sql</li>
+</ul>
+</li>
+<li>innodb_locks<ul>
+<li>锁ID</li>
+<li>事务ID</li>
+<li>锁模式</li>
+<li>锁类型（表锁/行锁）</li>
+<li>锁住的表</li>
+<li>锁住的索引（通过锁住聚集索引实现的行锁）</li>
+<li>表空间ID</li>
+<li>锁住的页数量（行锁才有意义）</li>
+<li>锁住的行数量（行锁才有意义）</li>
+<li>锁住的行的主键值（多行如何设置?）</li>
+</ul>
+</li>
+<li>innodb_waits<ul>
+<li>申请锁资源的事务ID</li>
+<li>申请的锁ID</li>
+<li>阻塞的事务ID</li>
+<li>阻塞的锁ID</li>
+</ul>
+</li>
+</ul>
+<h3 id="快照读"><a href="#快照读" class="headerlink" title="快照读"></a>快照读</h3><blockquote>
+<p>通过MVCC的思想实现读写并发（共享锁的并发能力还不够），通过读取快照版本数据实现<br>快照版本通过undo实现，但与其说是undo实现，倒不如说是innodb的undo机制正好用于实现快照，从而可以在不带来额外成本的情况下实现MVCC机制</p>
+</blockquote>
+<ul>
+<li>在不同事务隔离级别下的不同表现<ul>
+<li>RC：读取最新快照信息</li>
+<li>RR：读取开始时的最老快照信息，需要注意事务开始时间和数据读取时间不一样，而这里的开始时间指的是后者</li>
+<li>innodb的select操作默认都是快照读，同时也支持读加锁（当前读）<ul>
+<li>select … for update：所读记录加X锁，但是依然能被快照读</li>
+<li>select … lock in share mode：所读记录加S锁，显然能被快照读</li>
+<li>上述两种读取方式需要在事务中，当事务结束释放锁（类似于Lock）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="其他锁"><a href="#其他锁" class="headerlink" title="其他锁"></a>其他锁</h4><ul>
+<li>自增主键锁：表锁</li>
+<li>外键和锁：skip！</li>
+</ul>
+<h4 id="锁算法"><a href="#锁算法" class="headerlink" title="锁算法"></a>锁算法</h4><ul>
+<li>record lock：行锁</li>
+<li>gap lock：间隙锁</li>
+<li>next-key lcok：临键锁 = record lock + gap lock<ul>
+<li>select where id &lt; 6 lock in share mode：那么insert id=3阻塞，insert id=10成功</li>
+</ul>
+</li>
+</ul>
+<h4 id="锁解决事务带来的问题"><a href="#锁解决事务带来的问题" class="headerlink" title="锁解决事务带来的问题"></a>锁解决事务带来的问题</h4><ul>
+<li>更新丢失：两个事务同时读取并根据记录值进行修改操作，用户有100块钱，T1事务读取到100，T2也读取到100，两者同时花钱100得到-100，如果有非负约束得到0，而用户花出去200，则显然是错误的，处理方法：串行执行（加锁）。</li>
+<li>脏读：事务a读取到事务b未提交的数据，违反隔离性原则。RC级别下就可以解决，方式是：快照读，因为快照读的版本是通过undo段实现的，如果事务未提交，undo段会回滚并删除。</li>
+<li>不可重复读：一个事务两次读取数据不一致，这里的数据分两种，一个单条数据被update后的不一致，一个是数据被insert或者delete带来的不一致，一般来说前者叫不可重复读，由RR级别解决，后者叫幻读由Serialize级别解决，但是innodb环境下，两者都称为不可重复读，所以RR就需要将两者全部解决，方式是：通过最旧快照读 + 临键锁解决，最旧快照读保证update不可见，临键锁保证插入和删除阻塞。</li>
+</ul>
+<h4 id="阻塞"><a href="#阻塞" class="headerlink" title="阻塞"></a>阻塞</h4><ul>
+<li>一个事务中需要等待另外一个事务中的锁释放，通过posix thread模型中的mutex_enter函数实现，释放由mutex_exit实现，<em>这里考虑synchronized的monitor_enter和moniter_exit是一样的实现</em>。</li>
+<li>死锁：拉到最上面的线程那块，介绍了多种线程，其中有一种就是锁监控线程，负责查看死锁问题并告知用户，大部分情况下，数据库可以自己解决死锁：通过事务回滚即可（还记得上面的事务权重吗）</li>
+</ul>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><blockquote>
+<p>事务的ACID特性</p>
+</blockquote>
+<h3 id="如何保证已提交事务的ACID"><a href="#如何保证已提交事务的ACID" class="headerlink" title="如何保证已提交事务的ACID"></a>如何保证已提交事务的ACID</h3><ul>
+<li>log_buffer + redolog实现<ul>
+<li>事务开始时就写log_buffer并记录LSN</li>
+<li>事务提交时将log_buffer的记录写入redo（未提交也写入，见master thread部分）</li>
+<li>redolog落盘</li>
+<li>上述两步称为wrtie-ahead logging机制</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何保证未提交事务的ACID"><a href="#如何保证未提交事务的ACID" class="headerlink" title="如何保证未提交事务的ACID"></a>如何保证未提交事务的ACID</h3><ul>
+<li>undo段<ul>
+<li>事务开始时写入undo</li>
+<li>存放在共享表空间的特殊segment中（redo放在文件redolog中）</li>
+<li>存放内存：<ul>
+<li>对于insert，存放insert记录的ID（回滚时直接根据ID记性delete）</li>
+<li>对于delete，存放整条原记录（回滚时直接insert）</li>
+<li>对于update，存放整条原记录（回滚时直接udpate）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p>整片下来花了五个小时，基本是对之前innodb相关知识的回顾和串联，当然也理清了一些思路，收货很大，书如下：<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1544887338721&amp;di=45e626ff949dbbab5c210b9269a631d8&amp;imgtype=0&amp;src=http%3A%2F%2Fimg11.360buyimg.com%2FpopWaterMark%2Fg12%2FM00%2F0D%2F11%2FrBEQYFGsbu8IAAAAAAXacET4JwkAACpJgP5a54ABdqI349.jpg" alt="MySQL技术内幕"></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/14/NIO知识拾取/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yang Long">
+      <meta itemprop="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码麦皮">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/12/14/NIO知识拾取/" class="post-title-link" itemprop="http://yllwz.co/page/2/index.html">NIO知识拾取</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-14 19:45:33" itemprop="dateCreated datePublished" datetime="2018-12-14T19:45:33+08:00">2018-12-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-17 13:18:14" itemprop="dateModified" datetime="2018-12-17T13:18:14+08:00">2018-12-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/NIO/" itemprop="url" rel="index"><span itemprop="name">NIO</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/14/NIO知识拾取/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/14/NIO知识拾取/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="IO基础"><a href="#IO基础" class="headerlink" title="IO基础"></a>IO基础</h2><h3 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h3><ul>
+<li>没有缓冲区，通过InputStream/OutputStream直接从用户空间到内核空间（<em>为什么这样效率很低?</em>）</li>
+<li>同步阻塞IO，导致线程也被阻塞</li>
+</ul>
+<h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><h4 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h4><pre><code>- 是一块可写入和读取的内存块，包装后提供了一组方法进行内存块的操作和访问
+- 基本用法
+    - capacity：缓冲区总容量
+    - position：游标位置（写操作下，游标和limit一样一直增加，rewind时，游标复位，limit不变，flip时，游标复位并将limit设置成之前position的值）
+    - limit：缓冲区已用大小
+    - flip()：- 当向buffer写入数据时，buffer会记录下写了多少数据。一旦要读取数据需要通过flip()方法将Buffer从写模式切换到读模式。在读模式下，可以读取之前写入到buffer的所有数据。
+    - clear()：一旦读完了所有的数据，就需要清空缓冲区，让它可以再次被写入。有两种方式能清空缓冲区：调用clear()或compact()方法。clear()方法会清空整个缓冲区。compact()方法只会清除已经读过的数据
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">RandomAccessFile aFile = new RandomAccessFile(&quot;nio-data.txt&quot;, &quot;rw&quot;);</span><br><span class="line">FileChannel inChannel = aFile.getChannel();</span><br><span class="line">ByteBuffer buf = ByteBuffer.allocate(48); // 生成48字节大小的缓冲区</span><br><span class="line">int bytesRead = inChannel.read(buf); // 读取数据到缓冲区</span><br><span class="line">while (bytesRead != -1) &#123;</span><br><span class="line">  buf.flip();  // 准备从缓冲区读取数据</span><br><span class="line">  while(buf.hasRemaining())&#123;</span><br><span class="line">      System.out.print((char) buf.get()); // 每次读取1个字节</span><br><span class="line">  &#125;</span><br><span class="line">  buf.clear(); // 清空用于再次读取</span><br><span class="line">  bytesRead = inChannel.read(buf);</span><br><span class="line">&#125;</span><br><span class="line">aFile.close();</span><br></pre></td></tr></table></figure>
+
+- 关于HeapByteBuffer和DirectByteBuffer的几个疑问释疑
+    - DirectByteBuffer是否是内核空间?
+        - DirectByteBuffer毫无疑问属于堆外内存，但是依然属于操作系统体系中的用户空间，它通过glibc的ptmalloc函数分配的内存。
+    - DirectByteBuffer为什么能提高效率?
+        - DirectByteBuffer能减少一次拷贝,也就是说即使直接用HeapByteBuffer进行IO的时候也会默认创建一个DirectByteBuffer进行中转
+    - 为什么HeapByteBuffer不能直接写到内核空间而需要先拷贝到DirectByteBuffer再到内核空间?
+        - 因为内核空间的ReadFile（[FileInputStream与FileChannel对比](https://blog.csdn.net/infant09/article/details/80044868)    ）方法要求必须连续的内存，且使用期间该内存不得被操作。
+            - 而在jvm-heap上这两点都不能满足
+                - HeapByteBuffer分配出来的内存块处于jvm-heap上，在GC后（带有整理过程的算法如CMS），内存地址会改变
+                - HeapByteBuffer持有的byte[]数组在jvm规范下并不要求内存连续
+            - 而c-heap都能满足
+                - GC管不着，由操作系统进行内存空间管理
+                - glibc.ptmalloc分配的内存保证连续
+    - 能直接对DirectByteBuffer进行业务操作吗?
+        - 不能，如果需要对数据进行业务操作（编解码、解析、过滤），还是需要拷贝的jvm-heap。
+    - 综上所述：和我之前想法也是一致的，与其说DirectByteBuffer节省了内存拷贝，倒不如说是因为HeapByteBuffer要多一次拷贝，所以DirectByteBuffer要快一些。
+    - 所以netty使用堆外内存进行优化是这样的：
+        - 如果是用于RPC服务开发：利用堆外内存实现数据发送时的零拷贝，另外通过CompositeByteBuf的bytep[]组装功能实现零拷贝
+        - 如果是用于服务转接开发：利用堆外内存实现读取零拷贝
+        - 如果是ftp服务：利用transferTo实现零拷贝，这也是最正经的零拷贝概念，由DMA进行数据读取到内核，由内核发送到socket buffer，然后网卡传输出去
+</code></pre><h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -683,17 +1444,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -841,22 +1593,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础篇"><span class="nav-number">1.</span> <span class="nav-text">基础篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口体系"><span class="nav-number">2.</span> <span class="nav-text">接口体系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#领域对象接口"><span class="nav-number">2.1.</span> <span class="nav-text">领域对象接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Channel"><span class="nav-number">2.1.1.</span> <span class="nav-text">Channel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ChannelPipeline-gt-DefaultChannelPipeline"><span class="nav-number">2.1.2.</span> <span class="nav-text">ChannelPipeline -&gt; DefaultChannelPipeline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ChannelHandler"><span class="nav-number">2.1.3.</span> <span class="nav-text">ChannelHandler</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ChannelHandlerContext-gt-AbstractChannelHandlerContext"><span class="nav-number">2.1.4.</span> <span class="nav-text">ChannelHandlerContext -&gt; AbstractChannelHandlerContext</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ChannelInboundHandler"><span class="nav-number">2.1.5.</span> <span class="nav-text">ChannelInboundHandler</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ChannelOutboundHandler"><span class="nav-number">2.1.6.</span> <span class="nav-text">ChannelOutboundHandler</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#领域行为接口"><span class="nav-number">2.2.</span> <span class="nav-text">领域行为接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#NioEventLoop"><span class="nav-number">2.2.1.</span> <span class="nav-text">NioEventLoop</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">2.3.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ReferenceCounted"><span class="nav-number">2.3.1.</span> <span class="nav-text">ReferenceCounted</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际云音乐的RPC-DEBUG"><span class="nav-number">3.</span> <span class="nav-text">实际云音乐的RPC-DEBUG</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端调用链路"><span class="nav-number">3.1.</span> <span class="nav-text">客户端调用链路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端调用链路"><span class="nav-number">3.2.</span> <span class="nav-text">服务端调用链路</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -1054,10 +1790,6 @@
 
 
   
-  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
-<script src="/js/src/post-details.js?v=6.6.0"></script>
-
-
 
   
 
@@ -1072,23 +1804,6 @@
     <script id="dsq-count-scr" src="https://disqus_B5BXyv8p8b.disqus.com/count.js" async></script>
   
 
-  
-    <script>
-      var disqus_config = function () {
-        this.page.url = 'http://yllwz.co/2018/12/17/Netty学习笔记/';
-        this.page.identifier = '2018/12/17/Netty学习笔记/';
-        this.page.title = 'Netty学习笔记';
-        };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://disqus_B5BXyv8p8b.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        loadComments();
-      
-    </script>
   
 
 
