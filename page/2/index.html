@@ -382,6 +382,262 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/20/技术basara（一）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yang Long">
+      <meta itemprop="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码麦皮">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/12/20/技术basara（一）/" class="post-title-link" itemprop="http://yllwz.co/page/2/index.html">技术basara（一）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-20 13:11:26 / 修改时间：13:14:50" itemprop="dateCreated datePublished" datetime="2018-12-20T13:11:26+08:00">2018-12-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/basara/" itemprop="url" rel="index"><span itemprop="name">basara</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/20/技术basara（一）/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/20/技术basara（一）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="redis和mc对比"><a href="#redis和mc对比" class="headerlink" title="redis和mc对比"></a>redis和mc对比</h2><ul>
+<li>类加载<ul>
+<li>BootstrapClassLoader -&gt; ExtClassLoader -&gt; AppClassLoader -&gt; ConsumerClassLoader</li>
+<li>（jre系统类）          （jre扩展类）        （应用类）           （自定义类）</li>
+</ul>
+</li>
+<li>redis和mc<ul>
+<li>线程模型：<ul>
+<li>reactor单线程：无锁提高效率，但是不能利用多核。</li>
+<li>reactor多线程：索开销但是能利用多核</li>
+</ul>
+</li>
+<li>数据类型：<ul>
+<li>丰富：为了支持相应的数据结构，带来额外的cpu处理开销，再加上是单线程，导致某些操作会极大影响系吞吐量如：keys</li>
+<li>kv：数据结构支持简单</li>
+</ul>
+</li>
+<li>内存分配：<ul>
+<li>临时申请 ：Redis使用现场申请内存的方式来存储数据，并且很少使用free-list等方式来优化内存分配，会在一定程度上存在内存碎片</li>
+<li>预分配：将申请下来的内存空间按成长梯度划分为多个slab，slab内部又划分为大小相同的chunk，分配过程中查找适合的chunk进行处理，好处：规避内存分配开销，缺点：空间存在一定浪费。</li>
+</ul>
+</li>
+<li>淘汰策略：<ul>
+<li>redis：延迟淘汰 + 定期淘汰</li>
+<li>mc：延迟淘汰</li>
+</ul>
+</li>
+<li>分布式支持<ul>
+<li>cluster：通过去中心化，将所有key分散在16000+个slot上（CRC16(key)%slot_size），每个节点均分slot数量，并提供主从冗余和故障转移机制，保证cluster模式下高可用，在扩容的场景下，也能通过进行slot匀分进行重新数据再分配。</li>
+<li>客户端：mc本身不支持分布式，只能通过在客户端通过分片算法进行多节点部署后的伪分布式。</li>
+</ul>
+</li>
+<li>redis的swap机制<ul>
+<li>并不是所有kv都存放在内存，而是k是一定存在内存，但是v有可能因为长时间冷却后被存放在磁盘，触发时机是在内存使用量达到一定阈值，这些数据会放在swap文件中。</li>
+<li>但是如果从swap中获取数据，会导致额外的IO开销，从而增加主线程的阻塞时间。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="zookeeper的watcher机制"><a href="#zookeeper的watcher机制" class="headerlink" title="zookeeper的watcher机制"></a>zookeeper的watcher机制</h2><ul>
+<li>能力：提供分布式环境的下发布/订阅功能、通知等功能</li>
+<li>客户端（jar）在向服务端注册Watcher的同时，会将该对象添加到WatcherManager对象中。</li>
+<li>当ZooKeeper 服务器触发 Watcher 事件后，会向客户端发送通知，客户端线程从 WatchManager 的实现类中取出对应的 Watcher 对象来执行回调逻辑。</li>
+<li>zk的集群方式和redis的cluster集群方式看起来似乎一样，但是为什么两者的HA和扩缩容方式不一样呢<ul>
+<li>HA</li>
+<li>zk的HA原则是，只要集群中的节点还存在半数以上存活，就能提供完整的服务，也就是说如果要部署一个容错度为N（比如说N就是服务器的数量）的zk集群，那么部署2N+1台服务器构集群即可（偶数台机器只能提供和偶数台 - 1数量的集群一样的容错度，故不推荐使用），</li>
+<li>redis的HA是通过传统的主从方式实现的，</li>
+<li>扩缩容<ul>
+<li>zk的扩缩容没有经常听到，是因为zk并不是cpu敏感（hadoop）、磁盘敏感（DB）、内存敏感（redis）的中间件，只要初期经过容量评估基本是不需要扩容的，如果需要扩容<ul>
+<li>整体重启：简单、服务不可用（zk一般在服务中不是属于强关联组件，比如dubbo、配置中心等，而且重启时间虽然连接断开，但是不计入session失效时间，所以允许短暂时间的可用就可以使用这种方式）</li>
+<li>逐台重启：适合大多数场景，保证服务可用。</li>
+</ul>
+</li>
+<li>redis而扩缩容是通过对部分slot进行重新分配实现的，这里需要注意服务器挂掉和缩容的区别在于后者是经过内存考量后的处理，且进行过了数据迁移，而挂掉则不是。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HA包含多方面的问题，至少有以下两方面考量：<ul>
+<li>单点问题：冗余 + 故障转移<ul>
+<li>容灾考量：指火山、地震、海啸、战争等情况下，就算你提供了N台服务器的容错度，但是你TM整个机房都没有了，如何保证服务的HA（企业：这TM不扯淡吗），在高价值的企业服务和数据的场景下，这些事有必要的，比如银行存款数据，比如支付宝数据，如果一个地震好死不死把支付宝大楼震倒了（假设支付宝的机房都在这栋大楼里），那全国人民支付宝里面的钱都没有了（用户：这TM不扯淡吗），因为企业依赖于用于，所以企业需要思考这种问题，所以有了多机房的方案。这理论上也是机房出现了单点问题，其实这个概念再延伸，对公司来说个体是冗余+失备援（故障转移）的也就是你在你辞职了公司可以随时再招聘一个，但是每个个体也就是对我们每个人来说我们都有单点问题，再大点，整个人类都存在单点问题：地球。</li>
+<li>双机房：就zk的2N+1理论，不管怎么部署都不能保证某个机房挂掉后的可用性</li>
+<li>三机房：解决上面的问题，但是tm贵啊！</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="rpc和resetful"><a href="#rpc和resetful" class="headerlink" title="rpc和resetful"></a>rpc和resetful</h2><ul>
+<li>rpc<ul>
+<li>代表alibaba-dubbo、apache-thrift</li>
+<li>优点：自定义通信协议，这就意味着可话最少的空间传输最多的信息，节省带宽（80%），采用TCP长连接减少握手，性能高。</li>
+<li>缺点：因为要保持长连接所以需要接入客户端，另外需要感知客户端的调用方式变化（比如pom的包升级）。</li>
+</ul>
+</li>
+<li>restfule<ul>
+<li>代表spring-cloud</li>
+<li>优点：能穿透防火墙（默认80才能通过），专注服务端提供服务并对外传输数据，完全不用考虑调用方。</li>
+<li>缺点：扩缩容需要修改nginx，而rpc只需要通过zk动态感知即可。</li>
+</ul>
+</li>
+<li>业内对微服务的实现，基本是确定一个组织边界，在该边界内，使用RPC; 边界外，使用Restful。这个边界，可以是业务、部门，甚至是全公司。（也就是说内网通信用RPC，外网通信用HTTP）</li>
+<li>接续上述，另外一个区别角度是异构系统（不同系统不同语言）用http，相同语言用RPC</li>
+<li>接续上述，一般rpc都会提供泛化调用的能力，一定程度上兼容异构系统</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/17/Netty学习笔记/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1198,221 +1454,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/14/NIO知识拾取/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yang Long">
-      <meta itemprop="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="码麦皮">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/14/NIO知识拾取/" class="post-title-link" itemprop="http://yllwz.co/page/2/index.html">NIO知识拾取</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-14 19:45:33" itemprop="dateCreated datePublished" datetime="2018-12-14T19:45:33+08:00">2018-12-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-17 13:18:14" itemprop="dateModified" datetime="2018-12-17T13:18:14+08:00">2018-12-17</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/NIO/" itemprop="url" rel="index"><span itemprop="name">NIO</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/14/NIO知识拾取/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/14/NIO知识拾取/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="IO基础"><a href="#IO基础" class="headerlink" title="IO基础"></a>IO基础</h2><h3 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h3><ul>
-<li>没有缓冲区，通过InputStream/OutputStream直接从用户空间到内核空间（<em>为什么这样效率很低?</em>）</li>
-<li>同步阻塞IO，导致线程也被阻塞</li>
-</ul>
-<h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><h4 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h4><pre><code>- 是一块可写入和读取的内存块，包装后提供了一组方法进行内存块的操作和访问
-- 基本用法
-    - capacity：缓冲区总容量
-    - position：游标位置（写操作下，游标和limit一样一直增加，rewind时，游标复位，limit不变，flip时，游标复位并将limit设置成之前position的值）
-    - limit：缓冲区已用大小
-    - flip()：- 当向buffer写入数据时，buffer会记录下写了多少数据。一旦要读取数据需要通过flip()方法将Buffer从写模式切换到读模式。在读模式下，可以读取之前写入到buffer的所有数据。
-    - clear()：一旦读完了所有的数据，就需要清空缓冲区，让它可以再次被写入。有两种方式能清空缓冲区：调用clear()或compact()方法。clear()方法会清空整个缓冲区。compact()方法只会清除已经读过的数据
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">RandomAccessFile aFile = new RandomAccessFile(&quot;nio-data.txt&quot;, &quot;rw&quot;);</span><br><span class="line">FileChannel inChannel = aFile.getChannel();</span><br><span class="line">ByteBuffer buf = ByteBuffer.allocate(48); // 生成48字节大小的缓冲区</span><br><span class="line">int bytesRead = inChannel.read(buf); // 读取数据到缓冲区</span><br><span class="line">while (bytesRead != -1) &#123;</span><br><span class="line">  buf.flip();  // 准备从缓冲区读取数据</span><br><span class="line">  while(buf.hasRemaining())&#123;</span><br><span class="line">      System.out.print((char) buf.get()); // 每次读取1个字节</span><br><span class="line">  &#125;</span><br><span class="line">  buf.clear(); // 清空用于再次读取</span><br><span class="line">  bytesRead = inChannel.read(buf);</span><br><span class="line">&#125;</span><br><span class="line">aFile.close();</span><br></pre></td></tr></table></figure>
-
-- 关于HeapByteBuffer和DirectByteBuffer的几个疑问释疑
-    - DirectByteBuffer是否是内核空间?
-        - DirectByteBuffer毫无疑问属于堆外内存，但是依然属于操作系统体系中的用户空间，它通过glibc的ptmalloc函数分配的内存。
-    - DirectByteBuffer为什么能提高效率?
-        - DirectByteBuffer能减少一次拷贝,也就是说即使直接用HeapByteBuffer进行IO的时候也会默认创建一个DirectByteBuffer进行中转
-    - 为什么HeapByteBuffer不能直接写到内核空间而需要先拷贝到DirectByteBuffer再到内核空间?
-        - 因为内核空间的ReadFile（[FileInputStream与FileChannel对比](https://blog.csdn.net/infant09/article/details/80044868)    ）方法要求必须连续的内存，且使用期间该内存不得被操作。
-            - 而在jvm-heap上这两点都不能满足
-                - HeapByteBuffer分配出来的内存块处于jvm-heap上，在GC后（带有整理过程的算法如CMS），内存地址会改变
-                - HeapByteBuffer持有的byte[]数组在jvm规范下并不要求内存连续
-            - 而c-heap都能满足
-                - GC管不着，由操作系统进行内存空间管理
-                - glibc.ptmalloc分配的内存保证连续
-    - 能直接对DirectByteBuffer进行业务操作吗?
-        - 不能，如果需要对数据进行业务操作（编解码、解析、过滤），还是需要拷贝的jvm-heap。
-    - 综上所述：和我之前想法也是一致的，与其说DirectByteBuffer节省了内存拷贝，倒不如说是因为HeapByteBuffer要多一次拷贝，所以DirectByteBuffer要快一些。
-    - 所以netty使用堆外内存进行优化是这样的：
-        - 如果是用于RPC服务开发：利用堆外内存实现数据发送时的零拷贝，另外通过CompositeByteBuf的bytep[]组装功能实现零拷贝
-        - 如果是用于服务转接开发：利用堆外内存实现读取零拷贝
-        - 如果是ftp服务：利用transferTo实现零拷贝，这也是最正经的零拷贝概念，由DMA进行数据读取到内核，由内核发送到socket buffer，然后网卡传输出去
-</code></pre><h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1462,7 +1503,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1474,6 +1515,8 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
+                    
+                      
                     
                       
                     
@@ -1524,7 +1567,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

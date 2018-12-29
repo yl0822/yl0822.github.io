@@ -104,17 +104,18 @@
 
 
 
-  <meta name="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
-<meta name="keywords" content="技术、扯皮">
-<meta property="og:type" content="website">
-<meta property="og:title" content="码麦皮">
-<meta property="og:url" content="http://yllwz.co/categories/消息队列/index.html">
+  <meta name="description" content="java类加载器 三种 启动类加载器（bootstrapclassloader）：C++实现，无父类加载器，只加载JVM自身需要的类，包名为java、javax、sun等开头 扩展类加载器（extensionsclassloader）：java实现，父类加载器为null，加载JAVA_HOME/lib/ext目录下或者由系统变量-Djava.ext.dir指定位路径中的类库 应用类加载器（appl">
+<meta name="keywords" content="jdk,classloader">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术basara（二）">
+<meta property="og:url" content="http://yllwz.co/2018/12/24/技术basara（二）/index.html">
 <meta property="og:site_name" content="码麦皮">
-<meta property="og:description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+<meta property="og:description" content="java类加载器 三种 启动类加载器（bootstrapclassloader）：C++实现，无父类加载器，只加载JVM自身需要的类，包名为java、javax、sun等开头 扩展类加载器（extensionsclassloader）：java实现，父类加载器为null，加载JAVA_HOME/lib/ext目录下或者由系统变量-Djava.ext.dir指定位路径中的类库 应用类加载器（appl">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-29T01:32:47.273Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="码麦皮">
-<meta name="twitter:description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+<meta name="twitter:title" content="技术basara（二）">
+<meta name="twitter:description" content="java类加载器 三种 启动类加载器（bootstrapclassloader）：C++实现，无父类加载器，只加载JVM自身需要的类，包名为java、javax、sun等开头 扩展类加载器（extensionsclassloader）：java实现，父类加载器为null，加载JAVA_HOME/lib/ext目录下或者由系统变量-Djava.ext.dir指定位路径中的类库 应用类加载器（appl">
 
 
 
@@ -123,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yllwz.co/categories/消息队列/">
+  <link rel="canonical" href="http://yllwz.co/2018/12/24/技术basara（二）/">
 
 
 
@@ -133,7 +134,7 @@
   };
 </script>
 
-  <title>分类: 消息队列 | 码麦皮</title>
+  <title>技术basara（二） | 码麦皮</title>
   
 
 
@@ -181,7 +182,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -273,7 +274,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -361,83 +362,268 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>消息队列<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yllwz.co/2018/12/24/技术basara（二）/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yang Long">
+      <meta itemprop="description" content="许多事不要害怕做错，即使错了，也不必懊恼，人生就是对对错错，回头看来，对错已经无所谓了。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码麦皮">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/12/20/聊聊MQ选型/" itemprop="url">
-              
-                <span itemprop="name">聊聊MQ选型</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">技术basara（二）
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-20T16:17:12+08:00" content="2018-12-20">
-          12-20
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-24 11:33:59" itemprop="dateCreated datePublished" datetime="2018-12-24T11:33:59+08:00">2018-12-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-29 09:32:47" itemprop="dateModified" datetime="2018-12-29T09:32:47+08:00">2018-12-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/basara/" itemprop="url" rel="index"><span itemprop="name">basara</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/24/技术basara（二）/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/24/技术basara（二）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="java类加载器"><a href="#java类加载器" class="headerlink" title="java类加载器"></a>java类加载器</h2><ul>
+<li>三种<ul>
+<li>启动类加载器（bootstrapclassloader）：C++实现，无父类加载器，只加载JVM自身需要的类，包名为java、javax、sun等开头</li>
+<li>扩展类加载器（extensionsclassloader）：java实现，父类加载器为null，加载JAVA_HOME/lib/ext目录下或者由系统变量-Djava.ext.dir指定位路径中的类库</li>
+<li>应用类加载器（applicationclassloader）：java实现，父类加载器为ExtClassLoader，加载系统类路径java-classpath或-Djava.class.path下的类库</li>
+</ul>
+</li>
+</ul>
+<h2 id="抽象类和接口"><a href="#抽象类和接口" class="headerlink" title="抽象类和接口"></a>抽象类和接口</h2><ul>
+<li>接口是规则的定制者，虽然接口也分层，多层次的接口组合形成了一组完整的规则，对该规则进行不同实现，完成面向对象的编程。<ul>
+<li>比如上帝，只创造生物这么一个概念，下层规则继续进行细化，比如微生物、动物、植物等，继续拆分动物包括卵生动物、胎生动物，继续拆分卵生动物包括消化系统、排泄系统、繁殖系统，以至于最终到玫瑰或者人这样一种完整的实现类。</li>
+<li>比如大大，只传达<code>房住不炒</code>这么一个概念，下层住建部门进行规则细化，再下层省市级相关单位出台政策，最终到限购限售等等相关完整的实现类。</li>
+</ul>
+</li>
+<li>抽象类可以看做是一个半成品，它的抽象程度相对接口来说较低，但与其说抽象类是抽象，倒不如说抽象类是没想好或者无法完成定义在其中的abstract行为，从而交给子类。</li>
+<li>常见到框架将两者结合起来，包括spring-ioc和netty，首先通过多层次的接口组合形成完备的规则，然后用抽象类对该套规则进行基本完备的实现，留下abs扩展点交予子类实现。</li>
+</ul>
+<h2 id="aop思想再理解"><a href="#aop思想再理解" class="headerlink" title="aop思想再理解"></a>aop思想再理解</h2><ul>
+<li>aop思想是oop的补充：极致的oop要求单个对象自行提供该对象的所有功能，但是某些行为一旦成为一种公用行为，那么oop思想导致了过多的代码冗余，维护和编写体验都非常糟糕，aop就是为了解决这种冗余存在的，将公用代码抽离形成切面，利用代理方式进行行为注入，解决上述问题。</li>
+<li>关键点：代理<ul>
+<li>静态代理：在编译期间将切面注入到目标类中，也就是说classloader加载的是行为完备的类，这显然是需要在编译期进行一定处理的，aspectj框架实现了该套处理逻辑。<ul>
+<li>创建aj文件格式，通过ajc.exe命令进行编译，显然这个命令不是java自带命令，所以就需要进行环境变量的配置才能执行，配置后执行方式如：<code>ajc -d . Hello.java TxAspect.aj</code></li>
+</ul>
+</li>
+<li>动态代理：方法区存储的依然是裸类，但是在运行期将切面行为<code>注入</code>，这里与其说是注入不如说是拦截，即先调用切面行为再调用实际方法，这种方式通过cglib和jdkproxy实现。<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jdk/" rel="tag"># jdk</a>
+          
+            <a href="/tags/classloader/" rel="tag"># classloader</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/20/聊聊内存分配/" rel="next" title="聊聊内存分配">
+                <i class="fa fa-chevron-left"></i> 聊聊内存分配
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/29/2019年度规划/" rel="prev" title="2019年度规划">
+                2019年度规划 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -458,8 +644,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -476,7 +671,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -488,6 +683,8 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
+                    
+                      
                     
                       
                     
@@ -538,7 +735,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -607,6 +812,22 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java类加载器"><span class="nav-number">1.</span> <span class="nav-text">java类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象类和接口"><span class="nav-number">2.</span> <span class="nav-text">抽象类和接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aop思想再理解"><span class="nav-number">3.</span> <span class="nav-text">aop思想再理解</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -804,6 +1025,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
 
   
 
@@ -818,6 +1043,23 @@
     <script id="dsq-count-scr" src="https://disqus_B5BXyv8p8b.disqus.com/count.js" async></script>
   
 
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://yllwz.co/2018/12/24/技术basara（二）/';
+        this.page.identifier = '2018/12/24/技术basara（二）/';
+        this.page.title = '技术basara（二）';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://disqus_B5BXyv8p8b.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 
